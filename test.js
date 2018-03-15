@@ -1,1 +1,3 @@
-test
+function test(){
+	return "fruugo";	
+}
