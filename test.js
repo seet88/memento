@@ -1,3 +1,3 @@
 function test(){
-	return "fruugo";	
+	return field("test3");	
 }
