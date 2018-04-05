@@ -4,6 +4,6 @@ function test(){
 }
 function srd(input_string){
 	var str=String(input_string);
-str.replace(".",",");
-	return str;
+var str_out = str.replace(".",",");
+	return str_out;
 	}
