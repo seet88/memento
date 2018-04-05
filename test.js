@@ -4,6 +4,12 @@ function test(){
 }
 function srd(input_string){
 	var str=String(input_string);
-var str_out = str.replace(".",",")+"fr";
+var str_out = str.replace(".",",");
+	return str_out;
+	}
+    
+function src(input_string){
+	var str=String(input_string);
+var str_out = str.replace(",",".");
 	return str_out;
 	}
