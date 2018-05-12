@@ -13,7 +13,7 @@ var str_out = str.replace(",",".");
 function dateDiffInMinutes(startDate, endDate) {
     var startTime = new Date(startDate); 
     var endTime = new Date(endDate);
-    var diff = endDate.getTime() - startDate.getTime();
+    var diff = endDate - startDate;
     return (diff / 60000);
 }
 
