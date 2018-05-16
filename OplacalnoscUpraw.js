@@ -44,7 +44,7 @@ function UzupelnijKosztZabieguDlaPola(zabieg,kosztyZabiegu, pole,StrukturaTabeli
 				if(pole===zabiegPole){					
 					var status = zabieg.field("Status");
 					var uprawaZabieg = zabieg.field("Uprawa");
-					var nazwaZabiegu = zabieg.field(NumberZabiegu)+" "+zabieg.field(NazwaZabiegu);
+					var nazwaZabiegu = zabieg.field(StrukturaTabeli.NumberZabiegu)+" "+zabieg.field(StrukturaTabeli.NazwaZabiegu);
 					if(kosztyZabiegu.koszt_zl_ha[status]===undefined || kosztyZabiegu.koszt_zl_ha[status]===null || kosztyZabiegu.koszt_zl_ha[status]===NaN)
 						kosztyZabiegu.koszt_zl_ha[status]=0;
 					kosztyZabiegu.koszt_zl_ha[status]+=Math.round(Number(src(zabieg.field(StrukturaTabeli.NazwaCenyZabiegu))));	
