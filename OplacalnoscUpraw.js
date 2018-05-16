@@ -4,7 +4,12 @@ UzupelnijKosztDlaWszystkichTabel();
 
 function UzupelnijKosztDlaWszystkichTabel(){
 	var listaStrukturTabel = [
-		{Nazwa: "Arch Siew PROD 2017", NazwaCenyZabiegu: "Cena mieszanki (zl/ha)"}
+		{Nazwa: "Arch Siew PROD 2017", NazwaCenyZabiegu: "Cena mieszanki (zl/ha)"},
+		{Nazwa: "Arch SoR Mieszaniny PROD 2017", NazwaCenyZabiegu: "Cena mieszanki (zl/ha)"},
+		{Nazwa: "Arch PaPu Nawozenie PROD 2017", NazwaCenyZabiegu: "Cena zabiegu (zl/ha)"},
+		{Nazwa: "PaPu Nawozenie PROD", NazwaCenyZabiegu: "Cena zabiegu (zl/ha)"},
+		{Nazwa: "Siew PROD", NazwaCenyZabiegu: "Cena mieszanki (zl/ha)"},
+		{Nazwa: "SoR Mieszaniny PROD", NazwaCenyZabiegu: "Cena mieszanki (zl/ha)"}
 	]
 	for(var i in listaStrukturTabel){		
 		UzupelnijKosztDlaWszystkichPol(listaStrukturTabel[i]);
