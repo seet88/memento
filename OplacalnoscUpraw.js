@@ -9,6 +9,7 @@ function UzupelnijKosztDlaWszystkichTabel(){
 		{Nazwa: "Siew PROD", NazwaCenyZabiegu: "Cena mieszanki (zl/ha)", NazwaZabiegu: "Mieszanina", NumerZabiegu: "Numer mieszanki", Sezon: "2018", Zrodlo: "Siew"},
 		{Nazwa: "SoR Mieszaniny PROD", NazwaCenyZabiegu: "Cena mieszanki (zl/ha)", NazwaZabiegu: "Mieszanina", NumerZabiegu: "Numer mieszanki", Sezon: "2018", Zrodlo: "SoR"}
 	]
+	message("to moze potrwac kilka minut");
 	for(var i in listaStrukturTabel){		
 		UzupelnijKosztDlaWszystkichPol(listaStrukturTabel[i]);
 	}
@@ -68,7 +69,7 @@ function UzupelnijKosztZabieguDlaPola(zabieg,kosztyZabiegu, pole,StrukturaTabeli
 
 function DodajWpisDoOplacalnoscUpraw(kosztyZabiegu,pole,StrukturaTabeli){
 	for(var status in kosztyZabiegu.koszt_zl_ha){
-		if(kosztyZabiegu.koszt_zl_ha[status]>0){
+		if(kosztyZabiegu.koszt_zl_ha[status]>0 || arg("Uwzglednij Koszt zabiegu 0")==true ){
 			var kosztZabiegow = libByName("Oplacalnosc upraw PROD"); 
 			var nowyKosztZabiegow = new Object();
 			nowyKosztZabiegow["Koszt (zl/ha)"] = kosztyZabiegu.koszt_zl_ha[status];
