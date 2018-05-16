@@ -1,7 +1,5 @@
 //Kod wyciaga z tabeli zabieg koszt dla danego pola i dodaje wpis w Oplacalnosc upraw
 
-UzupelnijKosztDlaWszystkichTabel();	
-
 function UzupelnijKosztDlaWszystkichTabel(){
 	var listaStrukturTabel = [
 		{Nazwa: "Arch Siew PROD 2017", NazwaCenyZabiegu: "Cena mieszanki (zl/ha)", NazwaZabiegu: "Mieszanina", NumerZabiegu: "Numer mieszanki", Sezon: "2017", Zrodlo: "Siew"},
