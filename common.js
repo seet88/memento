@@ -17,11 +17,18 @@ function dateDiffInMinutes(startDate, endDate) {
     return (diff / 60000);
 }
 
-function isEmpty(obj) {
+function isNull(obj) {
     for(var prop in obj) {
         if(obj.hasOwnProperty(prop))
             return false;
     }
 
     return true;
+}
+
+function isEmpty(value){
+	if(value===undefined || value===null || value===NaN)
+		return true
+	else 
+		return false
 }
