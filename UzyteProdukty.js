@@ -1,12 +1,12 @@
 function UzupelnijKosztDlaWszystkichTabel(){
 	var strukturaSkladnikuZabiegu = {Nazwa: "Nazwa skladnika 1", Wartosc: "wartość skł. 1 (zł/ha)", Dawka: "Dawka 1", IloscSkladnika: "ils skl 1"};
 	var listaStrukturTabel = [
-		{Nazwa: "Arch Siew PROD 2017", NazwaCenyZabiegu: "Cena mieszanki (zl/ha)", NazwaZabiegu: "Mieszanina", NumerZabiegu: "Numer mieszanki", Sezon: "2017", Zrodlo: "Siew", poleUprawa: "lista", skladnik: strukturaSkladnikuZabiegu, nazwaPolaSkladnika: "Nazwa nasion"},
-		{Nazwa: "Arch SoR Mieszaniny PROD 2017", NazwaCenyZabiegu: "Cena mieszanki (zl/ha)", NazwaZabiegu: "Mieszanina", NumerZabiegu: "Numer mieszanki", Sezon: "2017", Zrodlo: "SoR", poleUprawa: "lista", skladnik: strukturaSkladnikuZabiegu, nazwaPolaSkladnika: "Nazwa srodka"},
-		{Nazwa: "Arch PaPu Nawozenie PROD 2017", NazwaCenyZabiegu: "Cena zabiegu (zl/ha)", NazwaZabiegu: "Nazwa zabiegu", NumerZabiegu: "Numer zabiegu", Sezon: "2017", Zrodlo: "PaPu", poleUprawa: "lista", skladnik: strukturaSkladnikuZabiegu, nazwaPolaSkladnika: "Nazwa nawozu"},
-		{Nazwa: "PaPu Nawozenie PROD", NazwaCenyZabiegu: "Cena zabiegu (zl/ha)", NazwaZabiegu: "Nazwa zabiegu", NumerZabiegu: "Numer zabiegu", Sezon: "2018", Zrodlo: "PaPu", poleUprawa: "biblioteka", skladnik: strukturaSkladnikuZabiegu, nazwaPolaSkladnika: "Nazwa nawozu"},
-		{Nazwa: "Siew PROD", NazwaCenyZabiegu: "Cena mieszanki (zl/ha)", NazwaZabiegu: "Mieszanina", NumerZabiegu: "Numer mieszanki", Sezon: "2018", Zrodlo: "Siew", poleUprawa: "biblioteka", skladnik: strukturaSkladnikuZabiegu, nazwaPolaSkladnika: "Nazwa nasion"},
-		{Nazwa: "SoR Mieszaniny PROD", NazwaCenyZabiegu: "Cena mieszanki (zl/ha)", NazwaZabiegu: "Mieszanina", NumerZabiegu: "Numer mieszanki", Sezon: "2018", Zrodlo: "SoR", poleUprawa: "biblioteka", skladnik: strukturaSkladnikuZabiegu, nazwaPolaSkladnika: "Nazwa srodka"}
+		{Nazwa: "Arch Siew PROD 2017", NazwaCenyZabiegu: "Cena mieszanki (zl/ha)", NazwaZabiegu: "Mieszanina", NumerZabiegu: "Numer mieszanki", Sezon: "2017", Zrodlo: "Siew", poleUprawa: "lista", skladnik: strukturaSkladnikuZabiegu, nazwaPolaSkladnika: "Nazwa nasion", iloscSkladnikow: 8},
+		{Nazwa: "Arch SoR Mieszaniny PROD 2017", NazwaCenyZabiegu: "Cena mieszanki (zl/ha)", NazwaZabiegu: "Mieszanina", NumerZabiegu: "Numer mieszanki", Sezon: "2017", Zrodlo: "SoR", poleUprawa: "lista", skladnik: strukturaSkladnikuZabiegu, nazwaPolaSkladnika: "Nazwa srodka", iloscSkladnikow: 8},
+		{Nazwa: "Arch PaPu Nawozenie PROD 2017", NazwaCenyZabiegu: "Cena zabiegu (zl/ha)", NazwaZabiegu: "Nazwa zabiegu", NumerZabiegu: "Numer zabiegu", Sezon: "2017", Zrodlo: "PaPu", poleUprawa: "lista", skladnik: strukturaSkladnikuZabiegu, nazwaPolaSkladnika: "Nazwa nawozu", iloscSkladnikow: 1},
+		{Nazwa: "PaPu Nawozenie PROD", NazwaCenyZabiegu: "Cena zabiegu (zl/ha)", NazwaZabiegu: "Nazwa zabiegu", NumerZabiegu: "Numer zabiegu", Sezon: "2018", Zrodlo: "PaPu", poleUprawa: "biblioteka", skladnik: strukturaSkladnikuZabiegu, nazwaPolaSkladnika: "Nazwa nawozu", iloscSkladnikow: 1},
+		{Nazwa: "Siew PROD", NazwaCenyZabiegu: "Cena mieszanki (zl/ha)", NazwaZabiegu: "Mieszanina", NumerZabiegu: "Numer mieszanki", Sezon: "2018", Zrodlo: "Siew", poleUprawa: "biblioteka", skladnik: strukturaSkladnikuZabiegu, nazwaPolaSkladnika: "Nazwa nasion", iloscSkladnikow: 8},
+		{Nazwa: "SoR Mieszaniny PROD", NazwaCenyZabiegu: "Cena mieszanki (zl/ha)", NazwaZabiegu: "Mieszanina", NumerZabiegu: "Numer mieszanki", Sezon: "2018", Zrodlo: "SoR", poleUprawa: "biblioteka", skladnik: strukturaSkladnikuZabiegu, nazwaPolaSkladnika: "Nazwa srodka", iloscSkladnikow: 8}
 	];
 	message("to moze potrwac kilka minut");
 	for(var i in listaStrukturTabel){	
@@ -42,16 +42,9 @@ function UzupelnijUzyteProduktyDlaZabiegu(StrukturaTabeli,zabieg){
 }
 
 function DodajSkladnikiZabiegu(StrukturaTabeli,daneZabiegu,zabieg){
-	var strukturaSkladnikuZabiegu=StrukturaTabeli.skladnik;
-	/*var skladnik = {
-		Nazwa: "",
-		Jednostka: "",
-		Wartosc: "",
-		Dawka: "",
-		IloscSkladnika: ""
-	}*/
+	var strukturaSkladnikuZabiegu=StrukturaTabeli.skladnik;	
 	var listaSkladnikow = [];
-	for(var i=1; i<8;i++){	
+	for(var i=1; i<=StrukturaTabeli.iloscSkladnikow;i++){	
 		if(!isNull(zabieg.field(strukturaSkladnikuZabiegu.Nazwa.replace("1",String(i))))){
 			var skladnik = new Object();
 			skladnik.Nazwa=zabieg.field(strukturaSkladnikuZabiegu.Nazwa.replace("1",String(i)));
@@ -92,3 +85,13 @@ function DodajUzyteProduktu(StrukturaTabeli,daneZabiegu){
 		}
 	}
 }
+
+
+
+
+
+
+
+
+
+
