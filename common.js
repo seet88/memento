@@ -32,3 +32,7 @@ function isEmpty(value){
 	else 
 		return false
 }
+
+function isNumeric(n) {
+	return !isNaN(parseFloat(n)) && isFinite(n);
+}
