@@ -1,4 +1,4 @@
-function UzupelnijKosztDlaWszystkichTabel(){
+function UzupelnijUzyteProduktyDlaWszystkichTabel(){
 	var strukturaElementuSkladnika = {Nazwa: "Nazwa skladnika 1", Wartosc: "Wartosc skl 1"};
 	var strukturaSkladnikuZabiegu = {Nazwa: "Nazwa skladnika 1", Wartosc: "wartość skł. 1 (zł/ha)", Dawka: "Dawka 1", IloscSkladnika: "ils skl 1", element: strukturaElementuSkladnika};
 	var listaStrukturTabel = [
@@ -8,14 +8,13 @@ function UzupelnijKosztDlaWszystkichTabel(){
 		{Nazwa: "PaPu Nawozenie PROD", NazwaCenyZabiegu: "Cena zabiegu (zl/ha)", NazwaZabiegu: "Nazwa zabiegu", NumerZabiegu: "Numer zabiegu", Sezon: "2018", Zrodlo: "PaPu", poleUprawa: "biblioteka", skladnik: strukturaSkladnikuZabiegu, nazwaPolaSkladnika: "Nazwa nawozu", iloscSkladnikow: 1},
 		{Nazwa: "Siew PROD", NazwaCenyZabiegu: "Cena mieszanki (zl/ha)", NazwaZabiegu: "Mieszanina", NumerZabiegu: "Numer mieszanki", Sezon: "2018", Zrodlo: "Siew", poleUprawa: "biblioteka", skladnik: strukturaSkladnikuZabiegu, nazwaPolaSkladnika: "Nazwa nasion", iloscSkladnikow: 8},
 		{Nazwa: "SoR Mieszaniny PROD", NazwaCenyZabiegu: "Cena mieszanki (zl/ha)", NazwaZabiegu: "Mieszanina", NumerZabiegu: "Numer mieszanki", Sezon: "2018", Zrodlo: "SoR", poleUprawa: "biblioteka", skladnik: strukturaSkladnikuZabiegu, nazwaPolaSkladnika: "Nazwa srodka", iloscSkladnikow: 8}
-	// ];
-	// message("to moze potrwac kilka minut");
-	// for(var i in listaStrukturTabel){	
-		// UzupelnijUzyteProduktyDlaTabeli(listaStrukturTabel[i]);
-	// }
-// }
-		{Nazwa: "SoR Mieszaniny PROD", NazwaCenyZabiegu: "Cena mieszanki (zl/ha)", NazwaZabiegu: "Mieszanina", NumerZabiegu: "Numer mieszanki", Sezon: "2018", Zrodlo: "SoR", poleUprawa: "biblioteka", skladnik: strukturaSkladnikuZabiegu, nazwaPolaSkladnika: "Nazwa srodka", iloscSkladnikow: 8}
 	];
+	message("to moze potrwac kilka minut");
+	for(var i in listaStrukturTabel){	
+		UzupelnijUzyteProduktyDlaTabeli(listaStrukturTabel[i]);
+	}
+}
+
 function UzupelnijUzyteProduktyDlaTabeli(StrukturaTabeli){
 	var zabiegi = libByName(StrukturaTabeli.Nazwa).entries();
 	for(var i in zabiegi){	
@@ -120,6 +119,7 @@ function DodajUzyteProduktu(StrukturaTabeli,daneZabiegu){
 					nowyUzytyProdukt["Wartosc elementu skladnika"] = listaElementowSkladnika[k].WartoscElementu;
 					
 					uzyteProdukty.create(nowyUzytyProdukt);
+					message("z element");
 				}
 			}else{
 				var uzyteProdukty = libByName("Uzyte produkty PROD"); 
@@ -144,13 +144,3 @@ function DodajUzyteProduktu(StrukturaTabeli,daneZabiegu){
 		}
 	}
 }
-
-
-
-
-
-
-
-
-
-
