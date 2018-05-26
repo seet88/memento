@@ -2,12 +2,12 @@ function UzupelnijUzyteProduktyDlaWszystkichTabel(){
 	var strukturaElementuSkladnika = {Nazwa: "Nazwa skladnika 1", Wartosc: "Wartosc skl 1"};
 	var strukturaSkladnikuZabiegu = {Nazwa: "Nazwa skladnika 1", Wartosc: "wartość skł. 1 (zł/ha)", Dawka: "Dawka 1", IloscSkladnika: "ils skl 1", element: strukturaElementuSkladnika};
 	var listaStrukturTabel = [
-		{Nazwa: "Arch Siew PROD 2017", NazwaCenyZabiegu: "Cena mieszanki (zl/ha)", NazwaZabiegu: "Mieszanina", NumerZabiegu: "Numer mieszanki", Sezon: "2017", Zrodlo: "Siew", poleUprawa: "lista", skladnik: strukturaSkladnikuZabiegu, nazwaPolaSkladnika: "Nazwa nasion", iloscSkladnikow: 8},
-		{Nazwa: "Arch SoR Mieszaniny PROD 2017", NazwaCenyZabiegu: "Cena mieszanki (zl/ha)", NazwaZabiegu: "Mieszanina", NumerZabiegu: "Numer mieszanki", Sezon: "2017", Zrodlo: "SoR", poleUprawa: "lista", skladnik: strukturaSkladnikuZabiegu, nazwaPolaSkladnika: "Nazwa srodka", iloscSkladnikow: 8},
-		{Nazwa: "Arch PaPu Nawozenie PROD 2017", NazwaCenyZabiegu: "Cena zabiegu (zl/ha)", NazwaZabiegu: "Nazwa zabiegu", NumerZabiegu: "Numer zabiegu", Sezon: "2017", Zrodlo: "PaPu", poleUprawa: "lista", skladnik: strukturaSkladnikuZabiegu, nazwaPolaSkladnika: "Nazwa nawozu", iloscSkladnikow: 1},
-		{Nazwa: "PaPu Nawozenie PROD", NazwaCenyZabiegu: "Cena zabiegu (zl/ha)", NazwaZabiegu: "Nazwa zabiegu", NumerZabiegu: "Numer zabiegu", Sezon: "2018", Zrodlo: "PaPu", poleUprawa: "biblioteka", skladnik: strukturaSkladnikuZabiegu, nazwaPolaSkladnika: "Nazwa nawozu", iloscSkladnikow: 1},
-		{Nazwa: "Siew PROD", NazwaCenyZabiegu: "Cena mieszanki (zl/ha)", NazwaZabiegu: "Mieszanina", NumerZabiegu: "Numer mieszanki", Sezon: "2018", Zrodlo: "Siew", poleUprawa: "biblioteka", skladnik: strukturaSkladnikuZabiegu, nazwaPolaSkladnika: "Nazwa nasion", iloscSkladnikow: 8},
-		{Nazwa: "SoR Mieszaniny PROD", NazwaCenyZabiegu: "Cena mieszanki (zl/ha)", NazwaZabiegu: "Mieszanina", NumerZabiegu: "Numer mieszanki", Sezon: "2018", Zrodlo: "SoR", poleUprawa: "biblioteka", skladnik: strukturaSkladnikuZabiegu, nazwaPolaSkladnika: "Nazwa srodka", iloscSkladnikow: 8}
+		{Nazwa: "Arch Siew PROD 2017", NazwaCenyZabiegu: "Cena mieszanki (zl/ha)", NazwaZabiegu: "Mieszanina", NumerZabiegu: "Numer mieszanki", Sezon: "2017", Zrodlo: "Siew", poleUprawa: "lista", skladnik: strukturaSkladnikuZabiegu, nazwaPolaSkladnika: "Nazwa nasion", iloscSkladnikow: 8,  nazwaPolaDatyZabiegu: "Data siewu"},
+		{Nazwa: "Arch SoR Mieszaniny PROD 2017", NazwaCenyZabiegu: "Cena mieszanki (zl/ha)", NazwaZabiegu: "Mieszanina", NumerZabiegu: "Numer mieszanki", Sezon: "2017", Zrodlo: "SoR", poleUprawa: "lista", skladnik: strukturaSkladnikuZabiegu, nazwaPolaSkladnika: "Nazwa srodka", iloscSkladnikow: 8,  nazwaPolaDatyZabiegu: "Data oprysku"},
+		{Nazwa: "Arch PaPu Nawozenie PROD 2017", NazwaCenyZabiegu: "Cena zabiegu (zl/ha)", NazwaZabiegu: "Nazwa zabiegu", NumerZabiegu: "Numer zabiegu", Sezon: "2017", Zrodlo: "PaPu", poleUprawa: "lista", skladnik: strukturaSkladnikuZabiegu, nazwaPolaSkladnika: "Nazwa nawozu", iloscSkladnikow: 1,  nazwaPolaDatyZabiegu: "Data zabiegu"},
+		{Nazwa: "PaPu Nawozenie PROD", NazwaCenyZabiegu: "Cena zabiegu (zl/ha)", NazwaZabiegu: "Nazwa zabiegu", NumerZabiegu: "Numer zabiegu", Sezon: "2018", Zrodlo: "PaPu", poleUprawa: "biblioteka", skladnik: strukturaSkladnikuZabiegu, nazwaPolaSkladnika: "Nazwa nawozu", iloscSkladnikow: 1,  nazwaPolaDatyZabiegu: "Data zabiegu"},
+		{Nazwa: "Siew PROD", NazwaCenyZabiegu: "Cena mieszanki (zl/ha)", NazwaZabiegu: "Mieszanina", NumerZabiegu: "Numer mieszanki", Sezon: "2018", Zrodlo: "Siew", poleUprawa: "biblioteka", skladnik: strukturaSkladnikuZabiegu, nazwaPolaSkladnika: "Nazwa nasion", iloscSkladnikow: 8,  nazwaPolaDatyZabiegu: "Data siewu"},
+		{Nazwa: "SoR Mieszaniny PROD", NazwaCenyZabiegu: "Cena mieszanki (zl/ha)", NazwaZabiegu: "Mieszanina", NumerZabiegu: "Numer mieszanki", Sezon: "2018", Zrodlo: "SoR", poleUprawa: "biblioteka", skladnik: strukturaSkladnikuZabiegu, nazwaPolaSkladnika: "Nazwa srodka", iloscSkladnikow: 8,  nazwaPolaDatyZabiegu: "Data oprysku"}
 	];
 	message("to moze potrwac kilka minut");
 	for(var i in listaStrukturTabel){	
@@ -29,7 +29,8 @@ function UzupelnijUzyteProduktyDlaZabiegu(StrukturaTabeli,zabieg){
 		status: zabieg.field("Status"),
 		obszarRzeczywisty: zabieg.field("Obszar"),
 		koszt_zl_ha: Math.round(Number(src(zabieg.field(StrukturaTabeli.NazwaCenyZabiegu)))),
-		pola: zabieg.field("Pole")	
+		pola: zabieg.field("Pole"),
+		dataZabiegu: Date.parse(zabieg.field(StrukturaTabeli.nazwaPolaDatyZabiegu))		
 	};
 	if(StrukturaTabeli.poleUprawa==="biblioteka" && !isNull(zabieg.field("Uprawa"))){						
 		daneZabiegu.uprawa = zabieg.field("Uprawa")[0].field("Nazwa");
@@ -101,9 +102,12 @@ function DodajUzyteProduktu(StrukturaTabeli,daneZabiegu){
 					var nowyUzytyProdukt = new Object();
 					nowyUzytyProdukt["Koszt (zl/ha)"] = daneZabiegu.koszt_zl_ha;
 					nowyUzytyProdukt["Pole"] = pola[i].field("nazwa");
+					if(!isEmpty(pola[i].field("GPS")))
+						nowyUzytyProdukt["GPS pola"] = pola[i].field("GPS").lat+","+pola[i].field("GPS").lng;
 					nowyUzytyProdukt["Nazwa"] = StrukturaTabeli.Zrodlo;
 					nowyUzytyProdukt["Uprawa"] = daneZabiegu.uprawa;
 					nowyUzytyProdukt["Status"] = daneZabiegu.status;
+					nowyUzytyProdukt["Data zabiegu"] = daneZabiegu.dataZabiegu;
 					nowyUzytyProdukt["Sezon"] = StrukturaTabeli.Sezon;
 					nowyUzytyProdukt["Nazwa zabiegu"] = daneZabiegu.numerZabiegu+" "+daneZabiegu.nazwaZabiegu;
 					nowyUzytyProdukt["Nazwa skladnika"] = listaSkladnikow[j].Nazwa[0].field(StrukturaTabeli.nazwaPolaSkladnika)+" >R: "+listaSkladnikow[j].Nazwa[0].field("REF");
@@ -128,6 +132,9 @@ function DodajUzyteProduktu(StrukturaTabeli,daneZabiegu){
 				nowyUzytyProdukt["Pole"] = pola[i].field("nazwa");
 				nowyUzytyProdukt["Nazwa"] = StrukturaTabeli.Zrodlo;
 				nowyUzytyProdukt["Uprawa"] = daneZabiegu.uprawa;
+				if(!isEmpty(pola[i].field("GPS")))
+					nowyUzytyProdukt["GPS pola"] = pola[i].field("GPS").lat+","+pola[i].field("GPS").lng;
+				nowyUzytyProdukt["Data zabiegu"] = daneZabiegu.dataZabiegu;
 				nowyUzytyProdukt["Status"] = daneZabiegu.status;
 				nowyUzytyProdukt["Sezon"] = StrukturaTabeli.Sezon;
 				nowyUzytyProdukt["Nazwa zabiegu"] = daneZabiegu.numerZabiegu+" "+daneZabiegu.nazwaZabiegu;
