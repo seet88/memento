@@ -36,3 +36,17 @@ function isEmpty(value){
 function isNumeric(n) {
 	return !isNaN(parseFloat(n)) && isFinite(n);
 }
+
+function empty(e) {
+  switch (e) {
+    case "":
+    case null:
+    case NaN:
+    case false:
+    case "undefined":
+    case typeof this == "undefined":
+      return true;
+    default:
+      return false;
+  }
+}
