@@ -70,7 +70,7 @@ function DodajElementSkladnika(StrukturaTabeli,daneSkladnika){
 	var strukturaElementuSkladnika = StrukturaTabeli.skladnik.element;
 	if(StrukturaTabeli.Sezon==="2017" && StrukturaTabeli.Zrodlo==="Siew") return;
 	for(var i=1; i<=6;i++){
-		if(!isEmpty(skladnik[0].field(strukturaElementuSkladnika.Wartosc.replace("1",String(i))))){
+		if(!empty(skladnik[0].field(strukturaElementuSkladnika.Wartosc.replace("1",String(i))))){
 			var element = new Object();
 			if(i==4)
 				element.Nazwa=skladnik[0].field("Nazwa slładnika 4");
@@ -81,8 +81,8 @@ function DodajElementSkladnika(StrukturaTabeli,daneSkladnika){
 			if(isNumeric(element.IloscElementu) && isNumeric(dawkaSkladnika))
 				element.WartoscElementu=dawkaSkladnika * element.IloscElementu;
 			element.Jednostka="kg/ha"; //Do zastanowienia sie
-			
-			listaElementowSkladnika.push(element);
+			if(!empty(element.Nazwa))
+				listaElementowSkladnika.push(element);
 		}	
 	}	
 	return listaElementowSkladnika;
@@ -96,7 +96,7 @@ function DodajUzyteProduktu(StrukturaTabeli,daneZabiegu){
 		var listaSkladnikow=daneZabiegu.skladniki;
 		for(var j in listaSkladnikow){	
 			var listaElementowSkladnika = listaSkladnikow[j].listaElementowSkladnika;
-			if(!isNaN(listaElementowSkladnika)){
+			if(!isNull(listaElementowSkladnika)){
 				for(var k in listaElementowSkladnika){
 					var uzyteProdukty = libByName("Uzyte produkty PROD"); 
 					var nowyUzytyProdukt = new Object();
@@ -123,7 +123,6 @@ function DodajUzyteProduktu(StrukturaTabeli,daneZabiegu){
 					nowyUzytyProdukt["Wartosc elementu skladnika"] = listaElementowSkladnika[k].WartoscElementu;
 					
 					uzyteProdukty.create(nowyUzytyProdukt);
-					message("z element");
 				}
 			}else{
 				var uzyteProdukty = libByName("Uzyte produkty PROD"); 
