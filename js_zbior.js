@@ -74,7 +74,7 @@ function uzupelnijCeneSkladnika(rekord){
 function uzupelnijSumeLadunku(rekord){
     var wartoscPozycji = pobierzWartosciPozycjiZbioruZJson(rekord);
     var sumaLadunku = pobierzSumeLadunkuPozycjiZbioruWgParametrow(wartoscPozycji); 
-    rekord.set("ilosc skl1",sumaLadunku);    
+    entryDefault().set("ilosc skl1",sumaLadunku);    
  }
 
 /**
