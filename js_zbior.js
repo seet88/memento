@@ -1,3 +1,6 @@
+var rekord = entry();
+liczCeneWedlug(rekord)
+
 /**
  * Zwraca cene jednostkowa wybranego produktu
  * @param {object} rekord  
@@ -121,7 +124,7 @@ function obliczWartoscPozycjiZbioruWgParametrow(listaCen){
         wartoscPozycjiZbioru.sumaWartosci+=Number(listaCen[i].wartosc);
         wartoscPozycjiZbioru.sumaladunku+=Number(listaCen[i].ladunek);
     } 
-    wartoscPozycjiZbioru.sredniaCena = wartoscPozycjiZbioru.sumaWartosci/wartoscPozycjiZbioru.sumaladunku;
+    wartoscPozycjiZbioru.sredniaCena = Number(wartoscPozycjiZbioru.sumaWartosci/wartoscPozycjiZbioru.sumaladunku);
     return wartoscPozycjiZbioru;
 }
 
@@ -135,7 +138,7 @@ function pobierzListeCenZbiorPozycje(parametryZbiorPoz){
     for(j in parametryZbiorPoz.zbiorPozycjeLista){
         var cechy = new Object();
         cechy.ladunek = pobierzLadunekZParametrow(parametryZbiorPoz.zbiorPozycjeLista[j]);
-        cechy.cena = pobierzCeneZParametrow(parametryZbiorPoz.zbiorPozycjeLista[j]);
+        cechy.cena = pobierzCeneZParametrow(parametryZbiorPoz.zbiorPozycjeLista[j].parametry);
         cechy.wartosc=cechy.ladunek*cechy.cena;
         listaCen.push(cechy);
     }
