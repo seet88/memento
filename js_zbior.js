@@ -69,7 +69,6 @@ function pobierzWartosciPozycjiZbioruZJson(rekord){
     var parametryZbiorPoz=pobierzJson(rekord);
     var listaCen = pobierzListeCenZbiorPozycje(parametryZbiorPoz);
     var wartoscPozycji = obliczWartoscPozycjiZbioruWgParametrow(listaCen);
-    message("suma ladunku: "+ceny.sumaladunku);
     return wartoscPozycji;
 }
 
@@ -119,7 +118,6 @@ function obliczWartoscPozycjiZbioruWgParametrow(listaCen){
     wartoscPozycjiZbioru.sumaWartosci=0;
     wartoscPozycjiZbioru.sumaladunku=0;
     for(i in listaCen){
-        message("numer: "+listaCen[i].ladunek);
         wartoscPozycjiZbioru.sumaWartosci+=Number(listaCen[i].wartosc);
         wartoscPozycjiZbioru.sumaladunku+=Number(listaCen[i].ladunek);
     } 
