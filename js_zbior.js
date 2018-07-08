@@ -47,7 +47,7 @@ function liczCeneWedlug(rekord){
         default:
             cenaSkladnika=liczCeneWedlugCenyProduktu(rekord);
     }
-    return cenaSkladnika;
+    return srd(Number(Math.round(cenaSkladnika+'e2')+'e-2'));
 }
 
 /**
@@ -58,6 +58,16 @@ function liczCeneWedlug(rekord){
 function uzupelnijCeneSkladnika(rekord){
    var wartoscPozycji = pobierzWartosciPozycjiZbioruZJson(rekord);
    return wartoscPozycji.sredniaCena;
+}
+/**
+ * Sprawdza czy nadpisac "ilosc skl1" - jezeli tak to nadpisuje 
+ * @param {object} rekord 
+ */
+function sprawdzCzyNadpisacIloscSkl1(rekord){
+    var czyNadpisacIloscSkl1=arg("czyNadpisacIloscSkl1")
+    if(czyNadpisacIloscSkl1==true){        
+        uzupelnijSumeLadunku(rekord);
+    } 
 }
 
 /**
