@@ -1,6 +1,9 @@
 var rekord = entry();
 liczCeneWedlug(rekord)
 
+
+
+
 /**
  * Zwraca cene jednostkowa wybranego produktu
  * @param {object} rekord  
@@ -45,7 +48,8 @@ function liczCeneWedlug(rekord){
             cenaSkladnika=liczCeneWedlugCenyZAtrybutuProduktu(rekord);
             break;
         case "Ceny z parametrow pozycji":
-            cenaSkladnika=uzupelnijCeneSkladnika(rekord)
+            cenaSkladnika=uzupelnijCeneSkladnika(rekord);
+            uzupelnijSumeLadunku(rekord);
             break;
         default:
             cenaSkladnika=liczCeneWedlugCenyProduktu(rekord);
@@ -62,6 +66,16 @@ function uzupelnijCeneSkladnika(rekord){
    var wartoscPozycji = pobierzWartosciPozycjiZbioruZJson(rekord);
    return wartoscPozycji.sredniaCena;
 }
+
+/**
+ * Nadpisuje pole "ilosc skl1" - sumą ladunku z pozycji.
+ * @param {object} rekord 
+ */
+function uzupelnijSumeLadunku(rekord){
+    var wartoscPozycji = pobierzWartosciPozycjiZbioruZJson(rekord);
+    var sumaLadunku = pobierzSumeLadunkuPozycjiZbioruWgParametrow(wartoscPozycji); 
+    rekod.set("ilosc skl1",sumaLadunku);    
+ }
 
 /**
  * Pobiera dla konkretnego rekordu z JSON'a sume wartosci i ladunku/srednia cene
