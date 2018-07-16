@@ -8,7 +8,6 @@ function uzupelnijProdukt(rekord){
     var siewRekord = znajdzSiewDlaUprawyIPola(uprawa,pole);    
     var produkt = pobierzNazweProduktuZSiewu(siewRekord);
     rekord.set("nazwa skladnika 1",produkt);
-    rekord.recalc();
 }
 
 /**
