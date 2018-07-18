@@ -20,12 +20,22 @@ function pobierzListeAtrybutow(link){
         if(sprawdzAtrybutySkladnika(link[i])){
             var obj = new Object();
             obj.nazwalinku=link[i].name;
-            obj.cena=link[i].attr("cena");
-            obj.dataModyfikacji=link[i].attr("Data modyfikacji"); 
+            obj.cena=link[i].attr("cena");            
+            obj.dataModyfikacji= new Date(link[i].attr("Data modyfikacji")).toString();
             atrybuty.lista.push(obj); 
         }  
     }
     return atrybuty;
+}
+/**
+ * dodaje 2 godziny do daty modyfikacji atrybutu
+ * @param {string|date} data 
+ * @returns {date}
+ */
+function korektaDatyModyfikacji(data){
+    var dataModyfikacji = new Date(data)
+    var dataZkorygowana = dataModyfikacji.setHours(dataModyfikacji.getHours()+2);
+    return dataZkorygowana;
 }
 
 function sprawdzAtrybutySkladnika(link){
@@ -63,7 +73,7 @@ function obliczRozniceDat(dataRozpoczecia,dataZakonczenia){
     return roznicaDat;
 }
 
-function aktualizujAtrybuty(rekord){    
+function aktualizujAtrybuty(rekord){  
     var atrybuty =JSON.parse(rekord.field("Atrybuty_JSON"));    
     var linkSkladnika = rekord.field("Nazwa skladnika 1");
     aktualizujAtrybutyDlaLinku(linkSkladnika,atrybuty)
@@ -78,9 +88,9 @@ function aktualizujAtrybutyDlaLinku(linki,atrybuty){
     }
 }
 
-function sprawdzWliscieAtrybutow(link,atrybutyLinku){
+function sprawdzWliscieAtrybutow(link,atrybutyLinku){    
     if(atrybutyLinku.nazwalinku==link.name){
-        if(obliczRozniceDat(link.attr("Data modyfikacji"),atrybutyLinku.dataModyfikacji)<0){
+        if(obliczRozniceDat(new Date(link.attr("Data modyfikacji")).toString(),atrybutyLinku.dataModyfikacji)<0){
             link.setAttr("cena",atrybutyLinku.cena);
             link.setAttr("Data modyfikacji",new Date(atrybutyLinku.dataModyfikacji));
             message("z aktualizowano atrybuty w linku: "+link.name);     
