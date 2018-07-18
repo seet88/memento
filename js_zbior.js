@@ -6,7 +6,7 @@
 function liczCeneWedlugCenyProduktu(rekord){
     var wartosc=0
     if(!isEmpty(rekord.field('nazwa skladnika 1')[0])){
-        wartosc = rekord.field('nazwa skladnika 1')[0].field('cena sr wazona (zl/l)');
+        wartosc = rekord.field('nazwa skladnika 1')[0].field('cena sr wazona (zl/l)');        
     }
     return srd(Number(Math.round(wartosc+'e2')+'e-2'));    
 }
@@ -47,7 +47,7 @@ function liczCeneWedlug(rekord){
         default:
             cenaSkladnika=liczCeneWedlugCenyProduktu(rekord);
     }
-    return srd(Number(Math.round(cenaSkladnika+'e2')+'e-2'));
+    return srd(Number(Math.round(src(cenaSkladnika)+'e2')+'e-2'));
 }
 
 /**
