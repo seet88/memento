@@ -132,12 +132,8 @@ function sprawdzWliscieAtrybutow(link,atrybutyLinku){
  */
 function sprawdzCzyZmienionoAtrybuty(link,atrybutyLinku){
     if(atrybutyLinku.nazwalinku==link.name){
-        if(link.attr("Wartosc")!=atrybutyLinku.wartosc)
-            return true
-        if(link.attr("WartoscStr")!=atrybutyLinku.wartoscStr)
-            return true  
-        if(link.attr("Uwagi")!=atrybutyLinku.uwagi)
-            return true                              
+        if(link.attr("cena")!=atrybutyLinku.cena)
+            return true                                    
     }
     return false
 }
