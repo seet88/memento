@@ -39,6 +39,7 @@ function korektaDatyModyfikacji(data){
     var dataZkorygowana = dataModyfikacji.setHours(dataModyfikacji.getHours()+2);
     return dataZkorygowana;
 }
+
 /**
  * Spradza czy atrybuty do linku sa uzupelnione, jezeli uzuplenione i data modyfikacji nie uzupelniona to uzupelnia
  * @param {object} link 
@@ -82,23 +83,29 @@ function obliczRozniceDat(dataRozpoczecia,dataZakonczenia){
 /**
  * Aktualizuje atrybuty dla określonych pól
  * @param {object} rekord 
+ * @param {number} tryb 1-aktualizacja atrybutow; 2- aktualizacja daty modyfikacji
  */
-function aktualizujAtrybuty(rekord){  
+function aktualizujAtrybuty(rekord, tryb){  
     var atrybuty =JSON.parse(rekord.field("Atrybuty_JSON"));    
     var linkParametry = rekord.field("Parametry");
-    aktualizujAtrybutyDlaLinku(linkParametry,atrybuty)
+    aktualizujAtrybutyDlaLinku(linkParametry,atrybuty, tryb)
 }
 
 /**
- * aktualizuje atrybuty dla wybranego pola
+ * w trybie 1 aktualizuje atrybuty dla wybranego pola, w trybie 2 aktualizuje date modyfikacji jezeli wykryl zmiane
  * @param {array} linki 
  * @param {object} atrybuty 
  */
-function aktualizujAtrybutyDlaLinku(linki,atrybuty){
+function aktualizujAtrybutyDlaLinku(linki,atrybuty, tryb){
     for(var i in linki){
         if(atrybuty.lista.length>0 && atrybuty.lista.length>=i){
             var atrybutyLinku =atrybuty.lista[i];
-            sprawdzWliscieAtrybutow(linki[i],atrybutyLinku)
+            if(tryb==1)
+                sprawdzWliscieAtrybutow(linki[i],atrybutyLinku)
+            else
+                if(sprawdzCzyZmienionoAtrybuty(linki[i],atrybutyLinku)){
+                    linki[i].setAttr("Data modyfikacji",new Date()); 
+                }
         }
     }
 }
@@ -119,4 +126,22 @@ function sprawdzWliscieAtrybutow(link,atrybutyLinku){
             //message("roznica dat: "+ obliczRozniceDat(link.attr("Data modyfikacji"),atrybutyLinku.dataModyfikacji));
         }
     }
-}    
+}
+
+/**
+ * sprawdza czy jakis atrybut zostal zmieniony
+ * @param {object|link} link 
+ * @param {object} atrybutyLinku
+ * @returns {boolean} 
+ */
+function sprawdzCzyZmienionoAtrybuty(link,atrybutyLinku){
+    if(atrybutyLinku.nazwalinku==link.name){
+        if(link.attr("Wartosc")!=atrybutyLinku.wartosc)
+            return true
+        if(link.attr("WartoscStr")!=atrybutyLinku.wartoscStr)
+            return true  
+        if(link.attr("Uwagi")!=atrybutyLinku.uwagi)
+            return true                              
+    }
+    return false
+}
