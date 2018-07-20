@@ -169,7 +169,7 @@ function pobierzListeCenZbiorPozycje(parametryZbiorPoz){
  */
 function pobierzCeneZParametrow(parametryDlaZbiorPozycje){
     for(var i in parametryDlaZbiorPozycje){
-        if(parametryDlaZbiorPozycje[i].nazwaParametru=="Cena"){
+        if(parametryDlaZbiorPozycje[i].nazwaParametru.toUpperCase()=="Cena".toUpperCase()){
             return Number(src(parametryDlaZbiorPozycje[i].wartosc));
         }
     }
