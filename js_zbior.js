@@ -98,7 +98,7 @@ function pobierzWartosciPozycjiZbioruZJson(rekord){
  * @returns {number}
  */
 function pobierzSumeWartosciPozycjiZbioruWgParametrow(wartoscPozycji){
-    return Number(wartoscPozycji.sumaWartosci);
+    return Number(src(wartoscPozycji.sumaWartosci));
 }
 
 /**
@@ -107,7 +107,7 @@ function pobierzSumeWartosciPozycjiZbioruWgParametrow(wartoscPozycji){
  * @returns {number}
  */
 function pobierzSumeLadunkuPozycjiZbioruWgParametrow(wartoscPozycji){
-    return Number(wartoscPozycji.sumaladunku);
+    return Number(src(wartoscPozycji.sumaladunku));
 }
 
 /**
@@ -116,13 +116,13 @@ function pobierzSumeLadunkuPozycjiZbioruWgParametrow(wartoscPozycji){
  * @returns {number}
  */
 function pobierzSredniaCenePozycjiZbioruWgParametrow(wartoscPozycji){
-    return Number(wartoscPozycji.sredniaCena);
+    return Number(src(wartoscPozycji.sredniaCena));
 }
 
 /**
  * dla konkretnego wpisu pobiera z pola JSON_ZbiorPozParametry json i przekształca go na obiekt.
  * @param {object} rekord -wiersz w tabeli
- * @returns parametryZbiorPoz {Object} - przekształcony JSON
+ * @returns {Object} parametryZbiorPoz  - przekształcony JSON
  */
 function pobierzJson(rekord){
     var parametryZbiorPoz = JSON.parse(rekord.field("JSON_ZbiorPozParametry"));
@@ -137,9 +137,9 @@ function obliczWartoscPozycjiZbioruWgParametrow(listaCen){
     var wartoscPozycjiZbioru = new Object(); 
     wartoscPozycjiZbioru.sumaWartosci=0;
     wartoscPozycjiZbioru.sumaladunku=0;
-    for(i in listaCen){
-        wartoscPozycjiZbioru.sumaWartosci+=Number(listaCen[i].wartosc);
-        wartoscPozycjiZbioru.sumaladunku+=Number(listaCen[i].ladunek);
+    for(var i in listaCen){
+        wartoscPozycjiZbioru.sumaWartosci+=Number(src(listaCen[i].wartosc));
+        wartoscPozycjiZbioru.sumaladunku+=Number(src(listaCen[i].ladunek));
     } 
     wartoscPozycjiZbioru.sredniaCena = Number(wartoscPozycjiZbioru.sumaWartosci/wartoscPozycjiZbioru.sumaladunku);
     return wartoscPozycjiZbioru;
@@ -152,7 +152,7 @@ function obliczWartoscPozycjiZbioruWgParametrow(listaCen){
  */
 function pobierzListeCenZbiorPozycje(parametryZbiorPoz){
     var listaCen=[];
-    for(j in parametryZbiorPoz.zbiorPozycjeLista){
+    for(var j in parametryZbiorPoz.zbiorPozycjeLista){
         var cechy = new Object();
         cechy.ladunek = pobierzLadunekZParametrow(parametryZbiorPoz.zbiorPozycjeLista[j]);
         cechy.cena = pobierzCeneZParametrow(parametryZbiorPoz.zbiorPozycjeLista[j].parametry);
@@ -168,9 +168,9 @@ function pobierzListeCenZbiorPozycje(parametryZbiorPoz){
  * @returns {number} -cena
  */
 function pobierzCeneZParametrow(parametryDlaZbiorPozycje){
-    for(i in parametryDlaZbiorPozycje){
+    for(var i in parametryDlaZbiorPozycje){
         if(parametryDlaZbiorPozycje[i].nazwaParametru=="Cena"){
-            return parametryDlaZbiorPozycje[i].wartosc;
+            return Number(src(parametryDlaZbiorPozycje[i].wartosc));
         }
     }
 }
@@ -181,5 +181,5 @@ function pobierzCeneZParametrow(parametryDlaZbiorPozycje){
  * @returns {number} -ladunek;
  */
 function pobierzLadunekZParametrow(parametryDlaZbiorPozycje){
-    return parametryDlaZbiorPozycje.ladunek;
+    return Number(src(parametryDlaZbiorPozycje.ladunek));
 }
