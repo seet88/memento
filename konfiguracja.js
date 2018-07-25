@@ -71,6 +71,20 @@ function konifiguracja(){
 	tabela.nazwaTabeliLinku = "PaPu 2018";	
 	tabela.typ = "PaPu"
 	listaTabel.push(tabela);
+	
+	
+	////// 2019 /////
+	var tabela = new Object();
+	tabela.sezon = "2019";
+	tabela.nazwaTabeli = "Siew 2019 PROD";
+	tabela.nazwaTabeliPola = "Pole";
+	tabela.obszarRzeczywisty = "Obszar rzeczywisty";
+	tabela.obszar = "obszar";
+	tabela.cenaMieszanki = "Cena mieszanki (zl/ha)"
+	tabela.nazwaTabeliLinku = "Siew 2019";
+	tabela.typ = "Siew"
+	listaTabel.push(tabela);
+	
 
 	return listaTabel;
 
