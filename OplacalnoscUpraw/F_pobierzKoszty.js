@@ -143,7 +143,7 @@ function obliczKosztDlaTypuZabiegu(tabela){
 function dodajSumeTypuZabiegu(PodsumowanieZabiegow, tabela){
 	var kosztZabiegow = libByName("Oplacalnosc upraw PROD");
 	var nowyKosztZabiegow = new Object();
-	nowyKosztZabiegow["Koszt (zl/ha)"] = PodsumowanieZabiegow.koszt_zl_ha;
+	nowyKosztZabiegow["Koszt (zl/ha)"] = PodsumowanieZabiegow.koszt_zl_ha * tabela.wspolczynnikKosztu;
 	nowyKosztZabiegow["Pole"] = PodsumowanieZabiegow.pole;
 	nowyKosztZabiegow["Nazwa"] = PodsumowanieZabiegow.typ;
 	nowyKosztZabiegow["Uprawa"] = PodsumowanieZabiegow.uprawa;
