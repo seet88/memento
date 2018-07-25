@@ -57,7 +57,7 @@ function konifiguracja(){
 	tabela.obszarRzeczywisty = "Obszar rzeczywisty";
 	tabela.obszar = "obszar";
 	tabela.cenaMieszanki = "Cena mieszanki (zl/ha)"
-	tabela.nazwaTabeliLinku = "SoR 2017";	
+	tabela.nazwaTabeliLinku = "SoR 2018";	
 	tabela.typ = "SoR"
 	listaTabel.push(tabela);
 
