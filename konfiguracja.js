@@ -11,9 +11,10 @@ function konifiguracja(){
 	tabela.nazwaTabeliPola = "Pole";
 	tabela.obszarRzeczywisty = "Obszar rzeczywisty";
 	tabela.obszar = "obszar";
-	tabela.cenaMieszanki = "Cena mieszanki (zl/ha)"
+	tabela.cenaMieszanki = "Cena mieszanki (zl/ha)";
 	tabela.nazwaTabeliLinku = "Siew 2017";
-	tabela.typ = "Siew"
+    	tabela.typ = "Siew";
+    	tabela.wspolczynnikKosztu = -1;
 	listaTabel.push(tabela);
 
 	var tabela = new Object();
@@ -22,9 +23,10 @@ function konifiguracja(){
 	tabela.nazwaTabeliPola = "Pole";
 	tabela.obszarRzeczywisty = "Obszar rzeczywisty";
 	tabela.obszar = "obszar";
-	tabela.cenaMieszanki = "Cena mieszanki (zl/ha)"
+	tabela.cenaMieszanki = "Cena mieszanki (zl/ha)";
 	tabela.nazwaTabeliLinku = "SoR 2017";	
-	tabela.typ = "SoR"
+	tabela.typ = "SoR";
+   	tabela.wspolczynnikKosztu = -1;
 	listaTabel.push(tabela);
 
 	var tabela = new Object();
@@ -33,9 +35,10 @@ function konifiguracja(){
 	tabela.nazwaTabeliPola = "Pole";
 	tabela.obszarRzeczywisty = "Obszar rzeczywisty";
 	tabela.obszar = "obszar";
-	tabela.cenaMieszanki = "Cena zabiegu (zl/ha)"
+	tabela.cenaMieszanki = "Cena zabiegu (zl/ha)";
 	tabela.nazwaTabeliLinku = "PaPu 2017";	
-	tabela.typ = "PaPu"
+	tabela.typ = "PaPu";
+    	tabela.wspolczynnikKosztu = -1;
 	listaTabel.push(tabela);
 
 	////// 2018 /////
@@ -45,9 +48,10 @@ function konifiguracja(){
 	tabela.nazwaTabeliPola = "Pole";
 	tabela.obszarRzeczywisty = "Obszar rzeczywisty";
 	tabela.obszar = "obszar";
-	tabela.cenaMieszanki = "Cena mieszanki (zl/ha)"
+	tabela.cenaMieszanki = "Cena mieszanki (zl/ha)";
 	tabela.nazwaTabeliLinku = "Siew 2018";
-	tabela.typ = "Siew"
+	tabela.typ = "Siew";
+    	tabela.wspolczynnikKosztu = -1;
 	listaTabel.push(tabela);
 
 	var tabela = new Object();
@@ -56,9 +60,10 @@ function konifiguracja(){
 	tabela.nazwaTabeliPola = "Pole";
 	tabela.obszarRzeczywisty = "Obszar rzeczywisty";
 	tabela.obszar = "obszar";
-	tabela.cenaMieszanki = "Cena mieszanki (zl/ha)"
+	tabela.cenaMieszanki = "Cena mieszanki (zl/ha)";
 	tabela.nazwaTabeliLinku = "SoR 2018";	
-	tabela.typ = "SoR"
+	tabela.typ = "SoR";
+    	tabela.wspolczynnikKosztu = -1;
 	listaTabel.push(tabela);
 
 	var tabela = new Object();
@@ -67,10 +72,11 @@ function konifiguracja(){
 	tabela.nazwaTabeliPola = "Pole";
 	tabela.obszarRzeczywisty = "Obszar rzeczywisty";
 	tabela.obszar = "obszar";
-	tabela.cenaMieszanki = "Cena zabiegu (zl/ha)"
+	tabela.cenaMieszanki = "Cena zabiegu (zl/ha)";
 	tabela.nazwaTabeliLinku = "PaPu 2018";	
-	tabela.typ = "PaPu"
-    listaTabel.push(tabela);
+	tabela.typ = "PaPu";
+    	tabela.wspolczynnikKosztu = -1;
+    	listaTabel.push(tabela);
     
 	var tabela = new Object();
 	tabela.sezon = "2018";
@@ -78,10 +84,11 @@ function konifiguracja(){
 	tabela.nazwaTabeliPola = "Pole";
 	tabela.obszarRzeczywisty = "Obszar rzeczywisty";
 	tabela.obszar = "obszar";
-	tabela.cenaMieszanki = "Cena zabiegu (zl/ha)"
+	tabela.cenaMieszanki = "Cena zabiegu (zl/ha)";
 	tabela.nazwaTabeliLinku = "Zbior 2018";	
-	tabela.typ = "Zbior"
-    listaTabel.push(tabela);    
+	tabela.typ = "Zbior";
+    	tabela.wspolczynnikKosztu = 1;
+    	listaTabel.push(tabela);    
     
 	var tabela = new Object();
 	tabela.sezon = "2018";
@@ -89,9 +96,10 @@ function konifiguracja(){
 	tabela.nazwaTabeliPola = "Pole";
 	tabela.obszarRzeczywisty = "Obszar rzeczywisty";
 	tabela.obszar = "obszar";
-	tabela.cenaMieszanki = "Cena zabiegu (zl/ha)"
+	tabela.cenaMieszanki = "Cena zabiegu (zl/ha)";
 	tabela.nazwaTabeliLinku = "Zabiegi uprawowe 2018";	
-	tabela.typ = "Zabiegi uprawowe"
+	tabela.typ = "Zabiegi uprawowe";
+    	tabela.wspolczynnikKosztu = -1;
 	listaTabel.push(tabela);
 	
 	
