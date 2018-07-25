@@ -70,6 +70,28 @@ function konifiguracja(){
 	tabela.cenaMieszanki = "Cena zabiegu (zl/ha)"
 	tabela.nazwaTabeliLinku = "PaPu 2018";	
 	tabela.typ = "PaPu"
+    listaTabel.push(tabela);
+    
+	var tabela = new Object();
+	tabela.sezon = "2018";
+	tabela.nazwaTabeli = "Zbior PROD";
+	tabela.nazwaTabeliPola = "Pole";
+	tabela.obszarRzeczywisty = "Obszar rzeczywisty";
+	tabela.obszar = "obszar";
+	tabela.cenaMieszanki = "Cena zabiegu (zl/ha)"
+	tabela.nazwaTabeliLinku = "Zbior 2018";	
+	tabela.typ = "Zbior"
+    listaTabel.push(tabela);    
+    
+	var tabela = new Object();
+	tabela.sezon = "2018";
+	tabela.nazwaTabeli = "Zabiegi uprawowe PROD";
+	tabela.nazwaTabeliPola = "Pole";
+	tabela.obszarRzeczywisty = "Obszar rzeczywisty";
+	tabela.obszar = "obszar";
+	tabela.cenaMieszanki = "Cena zabiegu (zl/ha)"
+	tabela.nazwaTabeliLinku = "Zabiegi uprawowe 2018";	
+	tabela.typ = "Zabiegi uprawowe"
 	listaTabel.push(tabela);
 	
 	
