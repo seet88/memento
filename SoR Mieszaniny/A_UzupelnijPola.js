@@ -14,7 +14,7 @@ function uzupelnijPolaZSwiewu(konfiguracja,rekord){
 		if(pole!="" || e.field("pole")[0]===undefined || e.field("pole")[0]=== null ){
 		//message("h:"+e.field("pole")[0]);
 			if(uprawa==uprawaSiew){
-			 message(uprawaSiew);
+			 //message(uprawaSiew);
 				for(var j=0; j<libSiew[i].field("pole").length;j++){
 
 				var    p = libSiew[i].field("pole")[j];
