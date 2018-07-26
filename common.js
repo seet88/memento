@@ -57,3 +57,18 @@ function isArrayEmpty(array){
 	}else 
 		return false;
 }
+
+/**
+ * zwraca nazwe uprawy w zaleznosci od sezonu
+ * @param {object|string} uprawa 
+ * @param {string} sezon 
+ * @returns {string}
+ */
+function pobierzNazweUprawy(uprawa,sezon){
+	if(sezon=="2017"){
+		return uprawa;
+	}else if(!isArrayEmpty(uprawa)){
+		return uprawa[0].name
+	} else
+		return "brakWybranejUprawy";
+}
