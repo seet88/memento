@@ -2,6 +2,8 @@
 /**
  * oblicza koszt zabiegu (zl/ha) w zaleznosci czy zabiegl byl w pelni wykonanyczy tylko na czesci pola
  * - jezeli na czesci to koszty sa czesciowe
+ * - jezeli obszar rzeczywisty jest uzupelniony - sprawdza czy czasem w calym polu - w danym sezonie 
+ * obszar uzytkowy nie jest pomniejszony. (wycinek pola nie jest uzywany)
  * @param {object|rekord} zabieg 
  * @returns {number} kosztZabiegu
  */
@@ -12,13 +14,40 @@ function obliczRealnyKosztZabieguZl_ha(zabieg,tabela){
 		var listaPol= zabieg.field(tabela.nazwaTabeliPola);
 		var obszar=0;
 		for(var i in listaPol){
-			obszar+=obszar+listaPol[i].field(tabela.obszar);
+			var obszarUzytkowyPola = znajdzObszarUzytkowyPolaDlaSezonu(listaPol[i],tabela);
+			if(!isEmpty(obszarUzytkowyPola)){
+				obszar+=obszar+obszarUzytkowyPola;	
+			}else{
+				obszar+=obszar+listaPol[i].field(tabela.obszar);
+			}
 		}
 		var stosunek = zabieg.field(tabela.obszarRzeczywisty)/obszar;
 		var cenaMieszanki= Math.round(Number(src(zabieg.field(tabela.cenaMieszanki))));
 		return Math.round(cenaMieszanki*stosunek);
 	}
 }
+
+/**
+ * Szuka w atrybutach pol - obszaru uzytkowego dla zadanego pola w podanym sezonie.
+ * jezeli znajdzie to zwraca obszar,
+ * jezeli nic nie znajdzie- to zwraca pustego stringa.
+ * @param {object|link} pole 
+ * @param {object} tabela
+ * @returns {number|string}  
+ */
+function znajdzObszarUzytkowyPolaDlaSezonu(pole,tabela){
+	var atrybuty = libByName("Atrybuty pol PROD").entries();
+	for(var i in atrybuty){
+		if(atrybuty[i].field("Nazwa")=="obszar uzytkowy" && atrybuty[i].field("Grupa")=="obszary" && atrybuty[i].field("Sezon")==tabela.sezon){
+			if(!isEmpty(atrybuty[i].field("Pole")[0]) && pole.name==atrybuty[i].field("Pole")[0].name){
+				var obszarUzytkowyPola = atrybuty[i].field("Wartosc"); 
+				return obszarUzytkowyPola;
+			}
+		}
+	}
+	return "";
+}
+
 
 /**
  * Sprawdza czy w liscie pol zawiera sie szukane pole
