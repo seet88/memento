@@ -9,20 +9,47 @@
  */
 function obliczRealnyKosztZabieguZl_ha(zabieg,tabela){
 	if(isEmpty(zabieg.field(tabela.obszarRzeczywisty))){
-		return Math.round(Number(src(zabieg.field(tabela.cenaMieszanki))));
-	} else {
-		var listaPol= zabieg.field(tabela.nazwaTabeliPola);
-		var obszar=0;
-		for(var i in listaPol){
-			var obszarUzytkowyPola = znajdzObszarUzytkowyPolaDlaSezonu(listaPol[i],tabela);
-			if(!isEmpty(obszarUzytkowyPola)){
-				obszar+=obszar+obszarUzytkowyPola;	
-			}else{
-				obszar+=obszar+listaPol[i].field(tabela.obszar);
-			}
+		var cenaMieszanki = Math.round(Number(src(zabieg.field(tabela.cenaMieszanki))));
+		if(!isNumber(cenaMieszanki)){
+			message("Bledna cena mieszanki: "+zabieg.name);
+			return 0;
+		} else {
+			return cenaMieszanki;
 		}
-		var stosunek = zabieg.field(tabela.obszarRzeczywisty)/obszar;
-		var cenaMieszanki= Math.round(Number(src(zabieg.field(tabela.cenaMieszanki))));
+	} else {
+		return obliczRealnyKosztZabieguWgStosunkuZl_ha(zabieg,tabela);		
+	}
+}
+
+/**
+ * oblicza koszt zabiegu (zl/ha) 
+ * jezeli obszar rzeczywisty jest uzupelniony - sprawdza czy czasem w calym polu - w danym sezonie 
+ * obszar uzytkowy nie jest pomniejszony. (wycinek pola nie jest uzywany)
+ * @param {object|rekord} zabieg 
+ * @param {object} tabela 
+ * @returns {number} kosztZabiegu
+ */
+function obliczRealnyKosztZabieguWgStosunkuZl_ha(zabieg,tabela){
+	var listaPol= zabieg.field(tabela.nazwaTabeliPola);
+	var obszar=0;
+	var stosunek=1;
+	for(var i in listaPol){
+		var obszarUzytkowyPola = znajdzObszarUzytkowyPolaDlaSezonu(listaPol[i],tabela);
+		if(!isEmpty(obszarUzytkowyPola)){
+			obszar+=obszar+Number(src(obszarUzytkowyPola));	
+		}else{
+			obszar+=obszar+Number(src(listaPol[i].field(tabela.obszar)));
+		}
+	}
+	if(Number(src(obszar))>0){
+		stosunek = zabieg.field(tabela.obszarRzeczywisty)/obszar;
+	}
+	var cenaMieszanki= Math.round(Number(src(zabieg.field(tabela.cenaMieszanki))));
+
+	if(!isNumber(cenaMieszanki)){
+		message("Bledna cena mieszanki: "+zabieg.name);
+		return 0;
+	} else {
 		return Math.round(cenaMieszanki*stosunek);
 	}
 }
@@ -48,6 +75,14 @@ function znajdzObszarUzytkowyPolaDlaSezonu(pole,tabela){
 	return "";
 }
 
+/**
+ * check if string is number
+ * @param {string} n 
+ * @returns {boolean}
+ */
+function isNumber(n) { 
+	return !isNaN(parseFloat(n)) && !isNaN(n - 0) 
+}
 
 /**
  * Sprawdza czy w liscie pol zawiera sie szukane pole
@@ -184,3 +219,6 @@ function dodajSumeTypuZabiegu(PodsumowanieZabiegow, tabela){
 	kosztZabiegow.create(nowyKosztZabiegow);
 	var z = kosztZabiegow.entries();	
 }
+
+
+obliczKosztDlaWszystkichTypowZabiegow();
