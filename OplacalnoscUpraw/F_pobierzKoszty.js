@@ -11,7 +11,7 @@ function obliczRealnyKosztZabieguZl_ha(zabieg,tabela){
 	if(isEmpty(zabieg.field(tabela.obszarRzeczywisty))){
 		var cenaMieszanki = Math.round(Number(src(zabieg.field(tabela.cenaMieszanki))));
 		if(!isNumber(cenaMieszanki)){
-			message("Bledna cena mieszanki: "+zabieg.name);
+			message("Bledna cena mieszanki: "+zabieg.name+ "w tabeli:"+tabela.typ+tabela.sezon);
 			return 0;
 		} else {
 			return cenaMieszanki;
@@ -47,7 +47,7 @@ function obliczRealnyKosztZabieguWgStosunkuZl_ha(zabieg,tabela){
 	var cenaMieszanki= Math.round(Number(src(zabieg.field(tabela.cenaMieszanki))));
 
 	if(!isNumber(cenaMieszanki)){
-		message("Bledna cena mieszanki: "+zabieg.name);
+		message("Bledna cena mieszanki: "+zabieg.name+ "w tabeli:"+tabela.typ+tabela.sezon);
 		return 0;
 	} else {
 		return Math.round(cenaMieszanki*stosunek);
@@ -220,5 +220,3 @@ function dodajSumeTypuZabiegu(PodsumowanieZabiegow, tabela){
 	var z = kosztZabiegow.entries();	
 }
 
-
-obliczKosztDlaWszystkichTypowZabiegow();
