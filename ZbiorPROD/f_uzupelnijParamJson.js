@@ -1,10 +1,11 @@
 
 /**
  * Uzueplnia pole JSON_ZbiorPozParametry na ZbiorProd, atrybutami i parametrami pozycji zbioru. 
+ * @param {Object} -lista zbiorPozycje
  */
 
-function uzupelnijParametryZbiorPozJson(){
-    var zbiorPozycje = libByName("Zbior pozycje PROD").entries();
+function uzupelnijParametryZbiorPozJson(zbiorPozycje){
+    //var zbiorPozycje = libByName("Zbior pozycje PROD").entries();
     var zbiorPozycji = new Object();
     var e = entry();
     zbiorPozycji.zbiorPozycjeLista = [];
