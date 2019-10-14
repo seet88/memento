@@ -6,5 +6,6 @@ function obliczKosztZabieguObrokiUprawy(rekord){
         obszar = rekord.field("Obszar rzeczywisty");
     
     var koszt = obszar * rekord.field("Cena za 1ha");
+    koszt = Math.round(koszt);
     return srd(koszt);
 }
