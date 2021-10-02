@@ -1,5 +1,3 @@
-
-
 function addKeyForObject(obj,fieldName, entry, typeCode){
  var fieldObj = {};
  var fieldValue = entry.field(fieldName);
@@ -56,13 +54,13 @@ function prepareFieldNameKey(fieldName){
 
 
 function addAllLibFields(obj,entry, addAllCustomLibFields){
-obj = addAllCustomLibFields(obj,entry);
-obj["MEMENTO_ID"] = entry.id;
-obj["Author"] = entry.author;
-//var json = JSON.stringify(String(entry.creationTime))
-obj["creationTime"] = moment(String(entry.creationTime));
-obj["lastModifiedTime"] = moment(String(entry.lastModifiedTime));
-obj["uniqueName"] = entry.name;
+	obj = addAllCustomLibFields(obj,entry);
+	obj["MEMENTO_ID"] = entry.id;
+	obj["Author"] = entry.author;
+	//var json = JSON.stringify(String(entry.creationTime))
+	obj["creationTime"] = moment(String(entry.creationTime));
+	obj["lastModifiedTime"] = moment(String(entry.lastModifiedTime));
+	obj["uniqueName"] = entry.name;
 
 return obj;
 }
@@ -93,10 +91,13 @@ function handleResposneFromServer(response, libName){
 	if(response.update.length>0){
 		updateLibrary(response.update, libName);
 	}
+	if(response.insert.length>0){
+		insertEntryInLibrary(response.insert, libName);
+	}
 }
 
 function updateLibrary(updateData, libName){
-var lib = libByName(libName);
+	var lib = libByName(libName);
 	for(var i=0; i<updateData.length; i++){
 		updateRow(updateData[i], lib);
 	}
@@ -109,8 +110,23 @@ function updateRow(columns, lib){
 	}
 }
 
-
 function updateField(field, foundedEntry){
 	if(field.name !== "mementoID")
 		foundedEntry.set(field.name, field.value);
+}
+
+function insertEntryInLibrary(dataRows, libName){
+	var lib = libByName(libName);
+	for(var i=0; i<dataRows.length; i++){
+		insertRow(dataRows[i], lib);
+	}
+}
+
+function insertRow(columns,lib){
+	var newMember = new Object();
+	for(var field of columns){
+		if(field.name !== "mementoID")
+			newMember[field.name] = field.value;
+	}
+	lib.create(newMember);
 }
