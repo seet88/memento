@@ -80,17 +80,14 @@ function addAllValueForLib(libName, addAllCustomLibFields){
   return libObj;  
 }
 
-var addAllCustomLibFields = addAllCustomLibFields_sor_mieszaniny_2020_prod
-var libName = "SoR Mieszaniny 2020 PROD"
-var serverAddress = "http://192.168.55.33:3000/api/memento"
+function synchronizeLibraryWithServer(libName,serverAddress,addAllCustomLibFields){
+	var mementoLibraryData = addAllValueForLib(libName, addAllCustomLibFields);
 
-var mementoLibraryData = addAllValueForLib(libName, addAllCustomLibFields);
-
-message("zebralem dane - wysylam do servera");
-var result = http().post(serverAddress, JSON.stringify(mementoLibraryData));
-message("otrzymalem dane z serwera o dlugosci:"+result.length);
-handleResposneFromServer(JSON.parse(result.body), libName);
-
+	message("zebralem dane - wysylam do servera");
+	var result = http().post(serverAddress, JSON.stringify(mementoLibraryData));
+	message("otrzymalem dane z serwera o dlugosci:"+result.length);
+	handleResposneFromServer(JSON.parse(result.body), libName);
+}
 
 function handleResposneFromServer(response, libName){
 	if(response.update.length>0){
