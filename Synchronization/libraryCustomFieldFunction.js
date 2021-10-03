@@ -3092,3 +3092,71 @@ function addAllCustomLibFields_srodki_prod(obj, entry){
 	
 return obj;
 }
+
+function addAllCustomLibFields_fv_all(obj, entry){
+ obj = addKeyForObject(obj,"Dostawca", entry, "ft_string"); 
+	 obj = addKeyForObject(obj,"nr faktury", entry, "ft_string"); 
+	 obj = addKeyForObject(obj,"Data dostawy", entry, "ft_string"); 
+	 obj = addKeyForObject(obj,"Nazwa srodka", entry, "ft_string"); 
+	 obj = addKeyForObject(obj,"Ilość z fv", entry, "ft_real"); 
+	 obj = addKeyForObject(obj,"Jednostka miary z FV", entry, "ft_real"); 
+	 obj = addKeyForObject(obj,"cena jednostkowa netto z FV", entry, "ft_real"); 
+	 obj = addKeyForObject(obj,"cena jednostkowa brutto z FV", entry, "ft_real"); 
+	 obj = addKeyForObject(obj,"Wartość netto", entry, "ft_real"); 
+	 obj = addKeyForObject(obj,"VAT", entry, "ft_string"); 
+	 obj = addKeyForObject(obj,"Kwota VAT", entry, "ft_real"); 
+	 obj = addKeyForObject(obj,"Wartość brutto", entry, "ft_real"); 
+	 obj = addKeyForObject(obj,"opakowanie", entry, "ft_real"); 
+	 obj = addKeyForObject(obj,"jednostka opakowania", entry, "ft_string"); 
+	 obj = addKeyForObject(obj,"cena (zl/l)", entry, "ft_real"); 
+	 obj = addKeyForObject(obj,"cena (zl/l) brutto", entry, "ft_real"); 
+	 obj = addKeyForObject(obj,"Cena_opakowania netto", entry, "ft_real"); 
+	 obj = addKeyForObject(obj,"Cena_opakowania brutto", entry, "ft_real"); 
+	 obj = addKeyForObject(obj,"rok zakupu", entry, "ft_string"); 
+	 obj = addKeyForObject(obj,"Cena sr wazona (zl/l)", entry, "ft_real"); 
+	 obj = addKeyForObject(obj,"Data ważności", entry, "ft_string"); 
+	 obj = addKeyForObject(obj,"stan magazynowy", entry, "ft_real"); 
+	 obj = addKeyForObject(obj,"Zawiera rabat netto", entry, "ft_real"); 
+	 obj = addKeyForObject(obj,"Symbol", entry, "ft_string"); 
+	 obj = addKeyForObject(obj,"Data inwetury", entry, "ft_date_time"); 
+	 obj = addKeyForObject(obj,"SCh notatka", entry, "ft_string"); 
+	 obj = addKeyForObject(obj,"Zdjęcie.http", entry, "ft_img"); 
+	 obj = addKeyForObject(obj,"notatki", entry, "ft_string"); 
+	 obj = addKeyForObject(obj,"kod paskowy", entry, "ft_barcode"); 
+	 obj = addKeyForObject(obj,"Masa Tysiąca Nasion MTN (g)  lub MTZ", entry, "ft_string"); 
+	 obj = addKeyForObject(obj,"Siła kiełkowania (%)", entry, "ft_string"); 
+	 obj = addKeyForObject(obj,"ID", entry, "ft_string"); 
+	 obj = addKeyForObject(obj,"REF", entry, "ft_int"); 
+	 obj = addKeyForObject(obj,"stan mag tmp", entry, "ft_real"); 
+	 obj = addKeyForObject(obj,"Data Inwentury", entry, "ft_date_time"); 
+	 obj = addKeyForObject(obj,"niw do przeniesienia do ŚRODKI PROD (nP/P)", entry, "ft_string"); 
+	 obj = addKeyForObject(obj,"do wykorzystania w 2017", entry, "ft_string"); 
+	 obj = addKeyForObject(obj,"Data wprowadzenia co do minuty", entry, "ft_date_time"); 
+	 obj = addKeyForObject(obj,"notatki tmp", entry, "ft_string"); 
+	 obj = addKeyForObject(obj,"MASZYNY (PRZEZNACZENIE FILTRU OLEJU)", entry, "ft_string"); 
+	 obj = addKeyForObject(obj,"Typ produktu", entry, "ft_string"); 
+	 obj = addKeyForObject(obj,"Inwent Notatka", entry, "ft_string"); 
+	 obj = addKeyForObject(obj,"Dla Kogo", entry, "ft_string"); 
+	 obj = addKeyForObject(obj,"Separator", entry, "ft_string"); 
+	 obj = addKeyForObject(obj,"Czysta Nazwa", entry, "ft_string"); 
+	 obj = addKeyForObject(obj,"IDL", entry, "ft_lib_entry"); 
+	
+return obj;
+}
+
+function addAllCustomLibFields_pola(obj, entry){
+ obj = addKeyForObject(obj,"nazwa", entry, "ft_string"); 
+	 obj = addKeyForObject(obj,"obszar", entry, "ft_real"); 
+	 obj = addKeyForObject(obj,"GPS", entry, "ft_map"); 
+	 obj = addKeyForObject(obj,"Czy glowne", entry, "ft_boolean"); 
+	 obj = addKeyForObject(obj,"Nr ewidencyjny dzialek", entry, "ft_string"); 
+	 obj = addKeyForObject(obj,"Polygon", entry, "ft_web"); 
+	 obj = addKeyForObject(obj,"sezon", entry, "ft_string"); 
+	 obj = addKeyForObject(obj,"Notatka", entry, "ft_rich_text"); 
+	 obj = addKeyForObject(obj,"Aktualny_koszt", entry, "ft_real"); 
+	 obj = addKeyForObject(obj,"Aktywne", entry, "ft_boolean"); 
+	 obj = addKeyForObject(obj,"Obszar ewidencyjny", entry, "ft_real"); 
+	 obj = addKeyForObject(obj,"GrupaPol", entry, "ft_str_list"); 
+	
+return obj;
+}

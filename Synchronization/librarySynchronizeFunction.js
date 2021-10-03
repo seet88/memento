@@ -5,10 +5,9 @@ function synchronizeLibraryByName(libName){
 		//synchronizeLibrary_lokacje_prod();	  
 	  
 		synchronizeLibrary_srodki_2020_prod();
-		synchronizeLibrary_zabiegi_pola_prod();
+		synchronizeLibrary_pola();
 		synchronizeLibrary_uprawy_prod();
-		synchronizeLibrary_stawki_pracownicy_prod();
-		synchronizeLibrary_srodki_2020_prod();		
+		synchronizeLibrary_stawki_pracownicy_prod();	
 		
 		synchronizeLibrary_sor_mieszaniny_2020_prod();		
 		break;
@@ -23,13 +22,13 @@ function synchronizeLibraryByName(libName){
 		synchronizeLibrary_lokacje_prod();	  
 	  
 		synchronizeLibrary_nawozy_2020_prod();
-		synchronizeLibrary_zabiegi_pola_prod();
+		synchronizeLibrary_pola();
 		synchronizeLibrary_uprawy_prod();
 		synchronizeLibrary_stawki_pracownicy_prod();
 		
 		synchronizeLibrary_papu_nawozenie_2020_prod();
 		break;
-	  case 'srodki 2020 PROD':
+	  case 'nawozy 2020 PROD':
 		synchronizeLibrary_opis_produktow_prod();
 		synchronizeLibrary_lokacje_prod();	
 
@@ -39,6 +38,24 @@ function synchronizeLibraryByName(libName){
 		message("brak funcji synchronizacji dla podanej biblioteki:"+libName);
 	}
 	
+}
+
+function synchronizeLibrary_pola(){ 
+	var addAllCustomLibFields = addAllCustomLibFields_pola
+	var libName = "pola";
+	var entriesConfig = libByName("Synchronizacja konfig PROD").entries();
+	var serverAddress = entriesConfig[0].field("Server");
+
+	synchronizeLibraryWithServer(libName,serverAddress,addAllCustomLibFields);
+}
+
+function synchronizeLibrary_fv_all(){ 
+	var addAllCustomLibFields = addAllCustomLibFields_fv_all
+	var libName = "FV_All";
+	var entriesConfig = libByName("Synchronizacja konfig PROD").entries();
+	var serverAddress = entriesConfig[0].field("Server");
+
+	synchronizeLibraryWithServer(libName,serverAddress,addAllCustomLibFields);
 }
 
 function synchronizeLibrary_srodki_prod(){ 
