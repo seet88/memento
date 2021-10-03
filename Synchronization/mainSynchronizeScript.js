@@ -131,6 +131,6 @@ function insertRow(columns,lib){
 		if(field.name !== "mementoID")
 			newMember[field.name] = field.value;
 	}
-	lib.create(newMember);
-	//TO DO recalc new member -
+	var newEntry = lib.create(newMember);
+	newEntry.recalc();
 }
