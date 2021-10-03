@@ -79,12 +79,14 @@ function addAllValueForLib(libName, addAllCustomLibFields){
 }
 
 function synchronizeLibraryWithServer(libName,serverAddress,addAllCustomLibFields){
+	message("rozpoczynam synchronizacje bazy:" + libName);
 	var mementoLibraryData = addAllValueForLib(libName, addAllCustomLibFields);
 
 	message("zebralem dane - wysylam do servera");
 	var result = http().post(serverAddress, JSON.stringify(mementoLibraryData));
 	message("otrzymalem dane z serwera o dlugosci:"+result.length);
 	handleResposneFromServer(JSON.parse(result.body), libName);
+	message("Zakonczona synchronizacja bazy:" + libName);
 }
 
 function handleResposneFromServer(response, libName){

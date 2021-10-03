@@ -1,43 +1,94 @@
 function synchronizeLibraryByName(libName){
 	switch (libName) {
-	  case 'SoR Mieszaniny 2020 PROD':
-		//synchronizeLibrary_opis_produktow_prod();
-		//synchronizeLibrary_lokacje_prod();	  
-	  
-		synchronizeLibrary_srodki_2020_prod();
-		synchronizeLibrary_pola();
-		synchronizeLibrary_uprawy_prod();
-		synchronizeLibrary_stawki_pracownicy_prod();	
-		
-		synchronizeLibrary_sor_mieszaniny_2020_prod();		
-		break;
-	  case 'srodki 2020 PROD':
-		synchronizeLibrary_opis_produktow_prod();
-		synchronizeLibrary_lokacje_prod();	
-		
-		synchronizeLibrary_srodki_2020_prod();		
-		break;
-	  case 'PaPu Nawozenie 2020 PROD':
-		synchronizeLibrary_opis_produktow_prod();
-		synchronizeLibrary_lokacje_prod();	  
-	  
-		synchronizeLibrary_nawozy_2020_prod();
-		synchronizeLibrary_pola();
-		synchronizeLibrary_uprawy_prod();
-		synchronizeLibrary_stawki_pracownicy_prod();
-		
-		synchronizeLibrary_papu_nawozenie_2020_prod();
-		break;
-	  case 'nawozy 2020 PROD':
-		synchronizeLibrary_opis_produktow_prod();
-		synchronizeLibrary_lokacje_prod();	
+		case "Przeglad maszyny PROD":
+			synchronizeLibrary_pojazdy_prod();
+			synchronizeLibrary_filtry_i_oleje_prod();
+			
+			synchronizeLibrary_przeglad_maszyny_prod();
+			break;
+		case "Tankowanie PROD":
+			synchronizeLibrary_pojazdy_prod();
+			synchronizeLibrary_fv_all();
+			
+			synchronizeLibrary_tankowanie_prod();
+			break;
+		case "Uslugi PROD":
+			synchronizeLibrary_pojazdy_prod();
+			synchronizeLibrary_fv_all();
+			//synchronizeLibrary_stawki_pracownicy_prod();
+			synchronizeLibrary_tankowanie_prod();
+			
+			synchronizeLibrary_uslugi_prod();
+			break;
+		case 'SoR Mieszaniny 2020 PROD':
+			//synchronizeLibrary_opis_produktow_prod();
+			//synchronizeLibrary_lokacje_prod();	  
 
-		synchronizeLibrary_nawozy_2020_prod();		
+			synchronizeLibrary_srodki_2020_prod();
+			synchronizeLibrary_pola();
+			//synchronizeLibrary_uprawy_prod();
+			//synchronizeLibrary_stawki_pracownicy_prod();	
+
+			synchronizeLibrary_sor_mieszaniny_2020_prod();		
 		break;
-	  default:
+		case 'srodki 2020 PROD':
+			//synchronizeLibrary_opis_produktow_prod();
+			//synchronizeLibrary_lokacje_prod();	
+
+			synchronizeLibrary_srodki_2020_prod();		
+			break;
+		case 'PaPu Nawozenie 2020 PROD':
+			//synchronizeLibrary_opis_produktow_prod();
+			//synchronizeLibrary_lokacje_prod();	  
+
+			synchronizeLibrary_nawozy_2020_prod();
+			synchronizeLibrary_pola();
+			//synchronizeLibrary_uprawy_prod();
+			//synchronizeLibrary_stawki_pracownicy_prod();
+
+			synchronizeLibrary_papu_nawozenie_2020_prod();
+			break;
+		case 'nawozy 2020 PROD':
+			//synchronizeLibrary_opis_produktow_prod();
+			//synchronizeLibrary_lokacje_prod();	
+
+			synchronizeLibrary_nawozy_2020_prod();		
+			break;
+		case "Zabiegi uprawowe 2020 PROD":
+			synchronizeLibrary_pojazdy_prod();
+			synchronizeLibrary_pola();
+			//synchronizeLibrary_uprawy_prod();
+			synchronizeLibrary_tankowanie_prod();
+			//synchronizeLibrary_stawki_pracownicy_prod();
+			
+			synchronizeLibrary_zabiegi_uprawowe_2020_prod();
+			break;		
+		case "Zbior 2020 PROD":
+			synchronizeLibrary_pola();
+			//synchronizeLibrary_uprawy_prod();
+			//synchronizeLibrary_stawki_pracownicy_prod();
+			synchronizeLibrary_nasiona_2020_prod();
+			//synchronizeLibrary_parametry_ziarna_prod();
+			
+			
+			synchronizeLibrary_zbior_2020_prod();
+			break;
+				
+		case "Zbior pozycje 2020 PROD":
+			synchronizeLibrary_zbior_2020_prod();
+			synchronizeLibrary_pola();
+			synchronizeLibrary_pojazdy_prod();
+			//synchronizeLibrary_uprawy_prod();
+			//synchronizeLibrary_stawki_pracownicy_prod();
+			//synchronizeLibrary_parametry_ziarna_prod();			
+			
+			synchronizeLibrary_zbior_pozycje_2020_prod();
+			break;
+		
+		default:
 		message("brak funcji synchronizacji dla podanej biblioteki:"+libName);
 	}
-	
+
 }
 
 function synchronizeLibrary_pola(){ 
@@ -567,7 +618,7 @@ function synchronizeLibrary_nawozy_2020_prod(){
 	var libName = "Nawozy 2020 PROD";
 	var entriesConfig = libByName("Synchronizacja konfig PROD").entries();
 	var serverAddress = entriesConfig[0].field("Server");
-
+	
 	synchronizeLibraryWithServer(libName,serverAddress,addAllCustomLibFields);
 }
 
