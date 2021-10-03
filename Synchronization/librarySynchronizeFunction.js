@@ -1,8 +1,8 @@
 function synchronizeLibraryByName(libName){
 	switch (libName) {
 	  case 'SoR Mieszaniny 2020 PROD':
-		synchronizeLibrary_opis_produktow_prod();
-		synchronizeLibrary_lokacje_prod();	  
+		//synchronizeLibrary_opis_produktow_prod();
+		//synchronizeLibrary_lokacje_prod();	  
 	  
 		synchronizeLibrary_srodki_2020_prod();
 		synchronizeLibrary_zabiegi_pola_prod();
