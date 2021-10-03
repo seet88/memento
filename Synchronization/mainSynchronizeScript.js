@@ -110,6 +110,7 @@ function updateRow(columns, lib){
 	for(var field of columns){
 		updateField(field, foundedEntry);
 	}
+	foundedEntry.recalc();
 }
 
 function updateField(field, foundedEntry){
@@ -131,4 +132,5 @@ function insertRow(columns,lib){
 			newMember[field.name] = field.value;
 	}
 	lib.create(newMember);
+	//TO DO recalc new member -
 }
