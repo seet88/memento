@@ -115,6 +115,9 @@ function updateRow(columns, lib){
 
 function updateField(field, foundedEntry){
 	if(field.name !== "mementoID")
+		if(field.type==='ft_date' || field.type ==='ft_date_time')
+			field.value = new Date(field.value);
+		
 		foundedEntry.set(field.name, field.value);
 }
 
@@ -129,6 +132,8 @@ function insertRow(columns,lib){
 	var newMember = new Object();
 	for(var field of columns){
 		if(field.name !== "mementoID")
+			if(field.type==='ft_date' || field.type ==='ft_date_time')
+				field.value = new Date(field.value);
 			newMember[field.name] = field.value;
 	}
 	var newEntry = lib.create(newMember);
