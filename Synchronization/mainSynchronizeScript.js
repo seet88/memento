@@ -85,7 +85,7 @@ function synchronizeLibraryWithServer(libName,serverAddress, userName,addAllCust
 
 	message("zebralem dane - wysylam do servera");
 	let result = http().post(serverAddress, JSON.stringify(mementoLibraryData));
-	if(result.code <= 200 && result.code > 220){
+	if(result.code < 200 || result.code > 220){
 		message("lib: "+libName+". Odebrany zostal blad z serwera:"+result.body);
 		return;
 	}
