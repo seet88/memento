@@ -91,6 +91,7 @@ function synchronizeLibraryByName(libName){
 
 }
 
+
 function synchronizeLibrary_pola(){
     let addAllCustomLibFields = addAllCustomLibFields_pola
     let libName = "pola";
@@ -98,7 +99,7 @@ function synchronizeLibrary_pola(){
     let serverAddress = entriesConfig[0].field("Server");
 
     let usersConfig = libByName("Konfiguracja PROD").entries();
-    let userName = ';
+    let userName = "";
     for(let idx in usersConfig){
     if(usersConfig[idx].field("czy To Ty"))
 		userName = usersConfig[idx].field("Nazwa Uzytkownika");
@@ -114,7 +115,7 @@ function synchronizeLibrary_srodki_prod(){
     let serverAddress = entriesConfig[0].field("Server");
 
     let usersConfig = libByName("Konfiguracja PROD").entries();
-    let userName = ';
+    let userName = "";
     for(let idx in usersConfig){
     if(usersConfig[idx].field("czy To Ty"))
 		userName = usersConfig[idx].field("Nazwa Uzytkownika");
@@ -130,7 +131,7 @@ function synchronizeLibrary_nawozy_prod(){
     let serverAddress = entriesConfig[0].field("Server");
 
     let usersConfig = libByName("Konfiguracja PROD").entries();
-    let userName = ';
+    let userName = "";
     for(let idx in usersConfig){
     if(usersConfig[idx].field("czy To Ty"))
 		userName = usersConfig[idx].field("Nazwa Uzytkownika");
@@ -146,7 +147,7 @@ function synchronizeLibrary_tankowanie_prod(){
     let serverAddress = entriesConfig[0].field("Server");
 
     let usersConfig = libByName("Konfiguracja PROD").entries();
-    let userName = ';
+    let userName = "";
     for(let idx in usersConfig){
     if(usersConfig[idx].field("czy To Ty"))
 		userName = usersConfig[idx].field("Nazwa Uzytkownika");
@@ -162,7 +163,7 @@ function synchronizeLibrary_uslugi_prod(){
     let serverAddress = entriesConfig[0].field("Server");
 
     let usersConfig = libByName("Konfiguracja PROD").entries();
-    let userName = ';
+    let userName = "";
     for(let idx in usersConfig){
     if(usersConfig[idx].field("czy To Ty"))
 		userName = usersConfig[idx].field("Nazwa Uzytkownika");
@@ -178,7 +179,7 @@ function synchronizeLibrary_traccar_zadania_prod(){
     let serverAddress = entriesConfig[0].field("Server");
 
     let usersConfig = libByName("Konfiguracja PROD").entries();
-    let userName = ';
+    let userName = "";
     for(let idx in usersConfig){
     if(usersConfig[idx].field("czy To Ty"))
 		userName = usersConfig[idx].field("Nazwa Uzytkownika");
@@ -194,7 +195,7 @@ function synchronizeLibrary_stawki_pracownicy_prod(){
     let serverAddress = entriesConfig[0].field("Server");
 
     let usersConfig = libByName("Konfiguracja PROD").entries();
-    let userName = ';
+    let userName = "";
     for(let idx in usersConfig){
     if(usersConfig[idx].field("czy To Ty"))
 		userName = usersConfig[idx].field("Nazwa Uzytkownika");
@@ -210,7 +211,7 @@ function synchronizeLibrary_rcp_prod(){
     let serverAddress = entriesConfig[0].field("Server");
 
     let usersConfig = libByName("Konfiguracja PROD").entries();
-    let userName = ';
+    let userName = "";
     for(let idx in usersConfig){
     if(usersConfig[idx].field("czy To Ty"))
 		userName = usersConfig[idx].field("Nazwa Uzytkownika");
@@ -226,7 +227,7 @@ function synchronizeLibrary_zakupy_prod(){
     let serverAddress = entriesConfig[0].field("Server");
 
     let usersConfig = libByName("Konfiguracja PROD").entries();
-    let userName = ';
+    let userName = "";
     for(let idx in usersConfig){
     if(usersConfig[idx].field("czy To Ty"))
 		userName = usersConfig[idx].field("Nazwa Uzytkownika");
@@ -242,7 +243,7 @@ function synchronizeLibrary_nasiona_prod(){
     let serverAddress = entriesConfig[0].field("Server");
 
     let usersConfig = libByName("Konfiguracja PROD").entries();
-    let userName = ';
+    let userName = "";
     for(let idx in usersConfig){
     if(usersConfig[idx].field("czy To Ty"))
 		userName = usersConfig[idx].field("Nazwa Uzytkownika");
@@ -258,7 +259,7 @@ function synchronizeLibrary_fv_all(){
     let serverAddress = entriesConfig[0].field("Server");
 
     let usersConfig = libByName("Konfiguracja PROD").entries();
-    let userName = ';
+    let userName = "";
     for(let idx in usersConfig){
     if(usersConfig[idx].field("czy To Ty"))
 		userName = usersConfig[idx].field("Nazwa Uzytkownika");
@@ -274,7 +275,7 @@ function synchronizeLibrary_zob_i_nal_prod(){
     let serverAddress = entriesConfig[0].field("Server");
 
     let usersConfig = libByName("Konfiguracja PROD").entries();
-    let userName = ';
+    let userName = "";
     for(let idx in usersConfig){
     if(usersConfig[idx].field("czy To Ty"))
 		userName = usersConfig[idx].field("Nazwa Uzytkownika");
@@ -290,7 +291,7 @@ function synchronizeLibrary_notatki_prod(){
     let serverAddress = entriesConfig[0].field("Server");
 
     let usersConfig = libByName("Konfiguracja PROD").entries();
-    let userName = ';
+    let userName = "";
     for(let idx in usersConfig){
     if(usersConfig[idx].field("czy To Ty"))
 		userName = usersConfig[idx].field("Nazwa Uzytkownika");
@@ -306,7 +307,7 @@ function synchronizeLibrary_poferment_prod(){
     let serverAddress = entriesConfig[0].field("Server");
 
     let usersConfig = libByName("Konfiguracja PROD").entries();
-    let userName = ';
+    let userName = "";
     for(let idx in usersConfig){
     if(usersConfig[idx].field("czy To Ty"))
 		userName = usersConfig[idx].field("Nazwa Uzytkownika");
@@ -322,7 +323,7 @@ function synchronizeLibrary_sor_mieszaniny_prod(){
     let serverAddress = entriesConfig[0].field("Server");
 
     let usersConfig = libByName("Konfiguracja PROD").entries();
-    let userName = ';
+    let userName = "";
     for(let idx in usersConfig){
     if(usersConfig[idx].field("czy To Ty"))
 		userName = usersConfig[idx].field("Nazwa Uzytkownika");
@@ -338,7 +339,7 @@ function synchronizeLibrary_siew_prod(){
     let serverAddress = entriesConfig[0].field("Server");
 
     let usersConfig = libByName("Konfiguracja PROD").entries();
-    let userName = ';
+    let userName = "";
     for(let idx in usersConfig){
     if(usersConfig[idx].field("czy To Ty"))
 		userName = usersConfig[idx].field("Nazwa Uzytkownika");
@@ -354,7 +355,7 @@ function synchronizeLibrary_papu_nawozenie_prod(){
     let serverAddress = entriesConfig[0].field("Server");
 
     let usersConfig = libByName("Konfiguracja PROD").entries();
-    let userName = ';
+    let userName = "";
     for(let idx in usersConfig){
     if(usersConfig[idx].field("czy To Ty"))
 		userName = usersConfig[idx].field("Nazwa Uzytkownika");
@@ -370,7 +371,7 @@ function synchronizeLibrary_filtry_i_oleje_prod(){
     let serverAddress = entriesConfig[0].field("Server");
 
     let usersConfig = libByName("Konfiguracja PROD").entries();
-    let userName = ';
+    let userName = "";
     for(let idx in usersConfig){
     if(usersConfig[idx].field("czy To Ty"))
 		userName = usersConfig[idx].field("Nazwa Uzytkownika");
@@ -386,7 +387,7 @@ function synchronizeLibrary_pojazdy_prod(){
     let serverAddress = entriesConfig[0].field("Server");
 
     let usersConfig = libByName("Konfiguracja PROD").entries();
-    let userName = ';
+    let userName = "";
     for(let idx in usersConfig){
     if(usersConfig[idx].field("czy To Ty"))
 		userName = usersConfig[idx].field("Nazwa Uzytkownika");
@@ -402,7 +403,7 @@ function synchronizeLibrary_przeglad_maszyny_prod(){
     let serverAddress = entriesConfig[0].field("Server");
 
     let usersConfig = libByName("Konfiguracja PROD").entries();
-    let userName = ';
+    let userName = "";
     for(let idx in usersConfig){
     if(usersConfig[idx].field("czy To Ty"))
 		userName = usersConfig[idx].field("Nazwa Uzytkownika");
@@ -418,7 +419,7 @@ function synchronizeLibrary_arch_srodki_prod_2017(){
     let serverAddress = entriesConfig[0].field("Server");
 
     let usersConfig = libByName("Konfiguracja PROD").entries();
-    let userName = ';
+    let userName = "";
     for(let idx in usersConfig){
     if(usersConfig[idx].field("czy To Ty"))
 		userName = usersConfig[idx].field("Nazwa Uzytkownika");
@@ -434,7 +435,7 @@ function synchronizeLibrary_arch_sor_mieszaniny_prod_2017(){
     let serverAddress = entriesConfig[0].field("Server");
 
     let usersConfig = libByName("Konfiguracja PROD").entries();
-    let userName = ';
+    let userName = "";
     for(let idx in usersConfig){
     if(usersConfig[idx].field("czy To Ty"))
 		userName = usersConfig[idx].field("Nazwa Uzytkownika");
@@ -450,7 +451,7 @@ function synchronizeLibrary_arch_nawozy_prod_2017(){
     let serverAddress = entriesConfig[0].field("Server");
 
     let usersConfig = libByName("Konfiguracja PROD").entries();
-    let userName = ';
+    let userName = "";
     for(let idx in usersConfig){
     if(usersConfig[idx].field("czy To Ty"))
 		userName = usersConfig[idx].field("Nazwa Uzytkownika");
@@ -466,7 +467,7 @@ function synchronizeLibrary_arch_papu_nawozenie_prod_2017(){
     let serverAddress = entriesConfig[0].field("Server");
 
     let usersConfig = libByName("Konfiguracja PROD").entries();
-    let userName = ';
+    let userName = "";
     for(let idx in usersConfig){
     if(usersConfig[idx].field("czy To Ty"))
 		userName = usersConfig[idx].field("Nazwa Uzytkownika");
@@ -482,7 +483,7 @@ function synchronizeLibrary_arch_nasiona_prod_2017(){
     let serverAddress = entriesConfig[0].field("Server");
 
     let usersConfig = libByName("Konfiguracja PROD").entries();
-    let userName = ';
+    let userName = "";
     for(let idx in usersConfig){
     if(usersConfig[idx].field("czy To Ty"))
 		userName = usersConfig[idx].field("Nazwa Uzytkownika");
@@ -498,7 +499,7 @@ function synchronizeLibrary_arch_siew_prod_2017(){
     let serverAddress = entriesConfig[0].field("Server");
 
     let usersConfig = libByName("Konfiguracja PROD").entries();
-    let userName = ';
+    let userName = "";
     for(let idx in usersConfig){
     if(usersConfig[idx].field("czy To Ty"))
 		userName = usersConfig[idx].field("Nazwa Uzytkownika");
@@ -514,7 +515,7 @@ function synchronizeLibrary_uprawy_prod(){
     let serverAddress = entriesConfig[0].field("Server");
 
     let usersConfig = libByName("Konfiguracja PROD").entries();
-    let userName = ';
+    let userName = "";
     for(let idx in usersConfig){
     if(usersConfig[idx].field("czy To Ty"))
 		userName = usersConfig[idx].field("Nazwa Uzytkownika");
@@ -530,7 +531,7 @@ function synchronizeLibrary_konfiguracja_prod(){
     let serverAddress = entriesConfig[0].field("Server");
 
     let usersConfig = libByName("Konfiguracja PROD").entries();
-    let userName = ';
+    let userName = "";
     for(let idx in usersConfig){
     if(usersConfig[idx].field("czy To Ty"))
 		userName = usersConfig[idx].field("Nazwa Uzytkownika");
@@ -546,7 +547,7 @@ function synchronizeLibrary_inwentura_prod(){
     let serverAddress = entriesConfig[0].field("Server");
 
     let usersConfig = libByName("Konfiguracja PROD").entries();
-    let userName = ';
+    let userName = "";
     for(let idx in usersConfig){
     if(usersConfig[idx].field("czy To Ty"))
 		userName = usersConfig[idx].field("Nazwa Uzytkownika");
@@ -562,7 +563,7 @@ function synchronizeLibrary_typy_skladnikow_prod(){
     let serverAddress = entriesConfig[0].field("Server");
 
     let usersConfig = libByName("Konfiguracja PROD").entries();
-    let userName = ';
+    let userName = "";
     for(let idx in usersConfig){
     if(usersConfig[idx].field("czy To Ty"))
 		userName = usersConfig[idx].field("Nazwa Uzytkownika");
@@ -578,7 +579,7 @@ function synchronizeLibrary_wartosci_skladnikow_produktow_prod(){
     let serverAddress = entriesConfig[0].field("Server");
 
     let usersConfig = libByName("Konfiguracja PROD").entries();
-    let userName = ';
+    let userName = "";
     for(let idx in usersConfig){
     if(usersConfig[idx].field("czy To Ty"))
 		userName = usersConfig[idx].field("Nazwa Uzytkownika");
@@ -594,7 +595,7 @@ function synchronizeLibrary_uzyte_aktywne_skladniki_prod(){
     let serverAddress = entriesConfig[0].field("Server");
 
     let usersConfig = libByName("Konfiguracja PROD").entries();
-    let userName = ';
+    let userName = "";
     for(let idx in usersConfig){
     if(usersConfig[idx].field("czy To Ty"))
 		userName = usersConfig[idx].field("Nazwa Uzytkownika");
@@ -610,7 +611,7 @@ function synchronizeLibrary_zabiegi_uprawowe_prod(){
     let serverAddress = entriesConfig[0].field("Server");
 
     let usersConfig = libByName("Konfiguracja PROD").entries();
-    let userName = ';
+    let userName = "";
     for(let idx in usersConfig){
     if(usersConfig[idx].field("czy To Ty"))
 		userName = usersConfig[idx].field("Nazwa Uzytkownika");
@@ -626,7 +627,7 @@ function synchronizeLibrary_oplacalnosc_upraw_prod(){
     let serverAddress = entriesConfig[0].field("Server");
 
     let usersConfig = libByName("Konfiguracja PROD").entries();
-    let userName = ';
+    let userName = "";
     for(let idx in usersConfig){
     if(usersConfig[idx].field("czy To Ty"))
 		userName = usersConfig[idx].field("Nazwa Uzytkownika");
@@ -642,7 +643,7 @@ function synchronizeLibrary_uzyte_produkty_prod(){
     let serverAddress = entriesConfig[0].field("Server");
 
     let usersConfig = libByName("Konfiguracja PROD").entries();
-    let userName = ';
+    let userName = "";
     for(let idx in usersConfig){
     if(usersConfig[idx].field("czy To Ty"))
 		userName = usersConfig[idx].field("Nazwa Uzytkownika");
@@ -658,7 +659,7 @@ function synchronizeLibrary_parametry_ziarna_prod(){
     let serverAddress = entriesConfig[0].field("Server");
 
     let usersConfig = libByName("Konfiguracja PROD").entries();
-    let userName = ';
+    let userName = "";
     for(let idx in usersConfig){
     if(usersConfig[idx].field("czy To Ty"))
 		userName = usersConfig[idx].field("Nazwa Uzytkownika");
@@ -674,7 +675,7 @@ function synchronizeLibrary_zbior_pozycje_prod(){
     let serverAddress = entriesConfig[0].field("Server");
 
     let usersConfig = libByName("Konfiguracja PROD").entries();
-    let userName = ';
+    let userName = "";
     for(let idx in usersConfig){
     if(usersConfig[idx].field("czy To Ty"))
 		userName = usersConfig[idx].field("Nazwa Uzytkownika");
@@ -690,7 +691,7 @@ function synchronizeLibrary_zbior_prod(){
     let serverAddress = entriesConfig[0].field("Server");
 
     let usersConfig = libByName("Konfiguracja PROD").entries();
-    let userName = ';
+    let userName = "";
     for(let idx in usersConfig){
     if(usersConfig[idx].field("czy To Ty"))
 		userName = usersConfig[idx].field("Nazwa Uzytkownika");
@@ -706,7 +707,7 @@ function synchronizeLibrary_nasiona_2019_prod(){
     let serverAddress = entriesConfig[0].field("Server");
 
     let usersConfig = libByName("Konfiguracja PROD").entries();
-    let userName = ';
+    let userName = "";
     for(let idx in usersConfig){
     if(usersConfig[idx].field("czy To Ty"))
 		userName = usersConfig[idx].field("Nazwa Uzytkownika");
@@ -722,7 +723,7 @@ function synchronizeLibrary_siew_2019_prod(){
     let serverAddress = entriesConfig[0].field("Server");
 
     let usersConfig = libByName("Konfiguracja PROD").entries();
-    let userName = ';
+    let userName = "";
     for(let idx in usersConfig){
     if(usersConfig[idx].field("czy To Ty"))
 		userName = usersConfig[idx].field("Nazwa Uzytkownika");
@@ -738,7 +739,7 @@ function synchronizeLibrary_nawozy_2019_prod(){
     let serverAddress = entriesConfig[0].field("Server");
 
     let usersConfig = libByName("Konfiguracja PROD").entries();
-    let userName = ';
+    let userName = "";
     for(let idx in usersConfig){
     if(usersConfig[idx].field("czy To Ty"))
 		userName = usersConfig[idx].field("Nazwa Uzytkownika");
@@ -754,7 +755,7 @@ function synchronizeLibrary_papu_nawozenie_2019_prod(){
     let serverAddress = entriesConfig[0].field("Server");
 
     let usersConfig = libByName("Konfiguracja PROD").entries();
-    let userName = ';
+    let userName = "";
     for(let idx in usersConfig){
     if(usersConfig[idx].field("czy To Ty"))
 		userName = usersConfig[idx].field("Nazwa Uzytkownika");
@@ -770,7 +771,7 @@ function synchronizeLibrary_srodki_2019_prod(){
     let serverAddress = entriesConfig[0].field("Server");
 
     let usersConfig = libByName("Konfiguracja PROD").entries();
-    let userName = ';
+    let userName = "";
     for(let idx in usersConfig){
     if(usersConfig[idx].field("czy To Ty"))
 		userName = usersConfig[idx].field("Nazwa Uzytkownika");
@@ -786,7 +787,7 @@ function synchronizeLibrary_sor_mieszaniny_2019_prod(){
     let serverAddress = entriesConfig[0].field("Server");
 
     let usersConfig = libByName("Konfiguracja PROD").entries();
-    let userName = ';
+    let userName = "";
     for(let idx in usersConfig){
     if(usersConfig[idx].field("czy To Ty"))
 		userName = usersConfig[idx].field("Nazwa Uzytkownika");
@@ -802,7 +803,7 @@ function synchronizeLibrary_zabiegi_uprawowe_2019_prod(){
     let serverAddress = entriesConfig[0].field("Server");
 
     let usersConfig = libByName("Konfiguracja PROD").entries();
-    let userName = ';
+    let userName = "";
     for(let idx in usersConfig){
     if(usersConfig[idx].field("czy To Ty"))
 		userName = usersConfig[idx].field("Nazwa Uzytkownika");
@@ -818,7 +819,7 @@ function synchronizeLibrary_atrybuty_pol_prod(){
     let serverAddress = entriesConfig[0].field("Server");
 
     let usersConfig = libByName("Konfiguracja PROD").entries();
-    let userName = ';
+    let userName = "";
     for(let idx in usersConfig){
     if(usersConfig[idx].field("czy To Ty"))
 		userName = usersConfig[idx].field("Nazwa Uzytkownika");
@@ -834,7 +835,7 @@ function synchronizeLibrary_atrybuty_pol_prod(){
     let serverAddress = entriesConfig[0].field("Server");
 
     let usersConfig = libByName("Konfiguracja PROD").entries();
-    let userName = ';
+    let userName = "";
     for(let idx in usersConfig){
     if(usersConfig[idx].field("czy To Ty"))
 		userName = usersConfig[idx].field("Nazwa Uzytkownika");
@@ -850,7 +851,7 @@ function synchronizeLibrary_suszenie_2018_prod(){
     let serverAddress = entriesConfig[0].field("Server");
 
     let usersConfig = libByName("Konfiguracja PROD").entries();
-    let userName = ';
+    let userName = "";
     for(let idx in usersConfig){
     if(usersConfig[idx].field("czy To Ty"))
 		userName = usersConfig[idx].field("Nazwa Uzytkownika");
@@ -866,7 +867,7 @@ function synchronizeLibrary_rcp_via_nfc_prod(){
     let serverAddress = entriesConfig[0].field("Server");
 
     let usersConfig = libByName("Konfiguracja PROD").entries();
-    let userName = ';
+    let userName = "";
     for(let idx in usersConfig){
     if(usersConfig[idx].field("czy To Ty"))
 		userName = usersConfig[idx].field("Nazwa Uzytkownika");
@@ -882,7 +883,7 @@ function synchronizeLibrary_lista_itagow_prod(){
     let serverAddress = entriesConfig[0].field("Server");
 
     let usersConfig = libByName("Konfiguracja PROD").entries();
-    let userName = ';
+    let userName = "";
     for(let idx in usersConfig){
     if(usersConfig[idx].field("czy To Ty"))
 		userName = usersConfig[idx].field("Nazwa Uzytkownika");
@@ -898,7 +899,7 @@ function synchronizeLibrary_zabiegi_pola_prod(){
     let serverAddress = entriesConfig[0].field("Server");
 
     let usersConfig = libByName("Konfiguracja PROD").entries();
-    let userName = ';
+    let userName = "";
     for(let idx in usersConfig){
     if(usersConfig[idx].field("czy To Ty"))
 		userName = usersConfig[idx].field("Nazwa Uzytkownika");
@@ -914,7 +915,7 @@ function synchronizeLibrary_wyslodki_prod(){
     let serverAddress = entriesConfig[0].field("Server");
 
     let usersConfig = libByName("Konfiguracja PROD").entries();
-    let userName = ';
+    let userName = "";
     for(let idx in usersConfig){
     if(usersConfig[idx].field("czy To Ty"))
 		userName = usersConfig[idx].field("Nazwa Uzytkownika");
@@ -930,7 +931,7 @@ function synchronizeLibrary_wyslodki_proste_prod(){
     let serverAddress = entriesConfig[0].field("Server");
 
     let usersConfig = libByName("Konfiguracja PROD").entries();
-    let userName = ';
+    let userName = "";
     for(let idx in usersConfig){
     if(usersConfig[idx].field("czy To Ty"))
 		userName = usersConfig[idx].field("Nazwa Uzytkownika");
@@ -946,7 +947,7 @@ function synchronizeLibrary_lokacje_prod(){
     let serverAddress = entriesConfig[0].field("Server");
 
     let usersConfig = libByName("Konfiguracja PROD").entries();
-    let userName = ';
+    let userName = "";
     for(let idx in usersConfig){
     if(usersConfig[idx].field("czy To Ty"))
 		userName = usersConfig[idx].field("Nazwa Uzytkownika");
@@ -962,7 +963,7 @@ function synchronizeLibrary_zbior_pozycje_2019_prod(){
     let serverAddress = entriesConfig[0].field("Server");
 
     let usersConfig = libByName("Konfiguracja PROD").entries();
-    let userName = ';
+    let userName = "";
     for(let idx in usersConfig){
     if(usersConfig[idx].field("czy To Ty"))
 		userName = usersConfig[idx].field("Nazwa Uzytkownika");
@@ -978,7 +979,7 @@ function synchronizeLibrary_zbior_2019_prod(){
     let serverAddress = entriesConfig[0].field("Server");
 
     let usersConfig = libByName("Konfiguracja PROD").entries();
-    let userName = ';
+    let userName = "";
     for(let idx in usersConfig){
     if(usersConfig[idx].field("czy To Ty"))
 		userName = usersConfig[idx].field("Nazwa Uzytkownika");
@@ -994,7 +995,7 @@ function synchronizeLibrary_srodki_2020_prod(){
     let serverAddress = entriesConfig[0].field("Server");
 
     let usersConfig = libByName("Konfiguracja PROD").entries();
-    let userName = ';
+    let userName = "";
     for(let idx in usersConfig){
     if(usersConfig[idx].field("czy To Ty"))
 		userName = usersConfig[idx].field("Nazwa Uzytkownika");
@@ -1010,7 +1011,7 @@ function synchronizeLibrary_sor_mieszaniny_2020_prod(){
     let serverAddress = entriesConfig[0].field("Server");
 
     let usersConfig = libByName("Konfiguracja PROD").entries();
-    let userName = ';
+    let userName = "";
     for(let idx in usersConfig){
     if(usersConfig[idx].field("czy To Ty"))
 		userName = usersConfig[idx].field("Nazwa Uzytkownika");
@@ -1026,7 +1027,7 @@ function synchronizeLibrary_zabiegi_uprawowe_2020_prod(){
     let serverAddress = entriesConfig[0].field("Server");
 
     let usersConfig = libByName("Konfiguracja PROD").entries();
-    let userName = ';
+    let userName = "";
     for(let idx in usersConfig){
     if(usersConfig[idx].field("czy To Ty"))
 		userName = usersConfig[idx].field("Nazwa Uzytkownika");
@@ -1042,7 +1043,7 @@ function synchronizeLibrary_nawozy_2020_prod(){
     let serverAddress = entriesConfig[0].field("Server");
 
     let usersConfig = libByName("Konfiguracja PROD").entries();
-    let userName = ';
+    let userName = "";
     for(let idx in usersConfig){
     if(usersConfig[idx].field("czy To Ty"))
 		userName = usersConfig[idx].field("Nazwa Uzytkownika");
@@ -1058,7 +1059,7 @@ function synchronizeLibrary_papu_nawozenie_2020_prod(){
     let serverAddress = entriesConfig[0].field("Server");
 
     let usersConfig = libByName("Konfiguracja PROD").entries();
-    let userName = ';
+    let userName = "";
     for(let idx in usersConfig){
     if(usersConfig[idx].field("czy To Ty"))
 		userName = usersConfig[idx].field("Nazwa Uzytkownika");
@@ -1074,7 +1075,7 @@ function synchronizeLibrary_nasiona_2020_prod(){
     let serverAddress = entriesConfig[0].field("Server");
 
     let usersConfig = libByName("Konfiguracja PROD").entries();
-    let userName = ';
+    let userName = "";
     for(let idx in usersConfig){
     if(usersConfig[idx].field("czy To Ty"))
 		userName = usersConfig[idx].field("Nazwa Uzytkownika");
@@ -1090,7 +1091,7 @@ function synchronizeLibrary_nasiona_2020_prod(){
     let serverAddress = entriesConfig[0].field("Server");
 
     let usersConfig = libByName("Konfiguracja PROD").entries();
-    let userName = ';
+    let userName = "";
     for(let idx in usersConfig){
     if(usersConfig[idx].field("czy To Ty"))
 		userName = usersConfig[idx].field("Nazwa Uzytkownika");
@@ -1106,7 +1107,7 @@ function synchronizeLibrary_siew_2020_prod(){
     let serverAddress = entriesConfig[0].field("Server");
 
     let usersConfig = libByName("Konfiguracja PROD").entries();
-    let userName = ';
+    let userName = "";
     for(let idx in usersConfig){
     if(usersConfig[idx].field("czy To Ty"))
 		userName = usersConfig[idx].field("Nazwa Uzytkownika");
@@ -1122,7 +1123,7 @@ function synchronizeLibrary_zbior_2020_prod(){
     let serverAddress = entriesConfig[0].field("Server");
 
     let usersConfig = libByName("Konfiguracja PROD").entries();
-    let userName = ';
+    let userName = "";
     for(let idx in usersConfig){
     if(usersConfig[idx].field("czy To Ty"))
 		userName = usersConfig[idx].field("Nazwa Uzytkownika");
@@ -1138,7 +1139,7 @@ function synchronizeLibrary_zbior_pozycje_2020_prod(){
     let serverAddress = entriesConfig[0].field("Server");
 
     let usersConfig = libByName("Konfiguracja PROD").entries();
-    let userName = ';
+    let userName = "";
     for(let idx in usersConfig){
     if(usersConfig[idx].field("czy To Ty"))
 		userName = usersConfig[idx].field("Nazwa Uzytkownika");
@@ -1154,7 +1155,7 @@ function synchronizeLibrary_opis_produktow_prod(){
     let serverAddress = entriesConfig[0].field("Server");
 
     let usersConfig = libByName("Konfiguracja PROD").entries();
-    let userName = ';
+    let userName = "";
     for(let idx in usersConfig){
     if(usersConfig[idx].field("czy To Ty"))
 		userName = usersConfig[idx].field("Nazwa Uzytkownika");
@@ -1170,7 +1171,7 @@ function synchronizeLibrary_typy_zabiegow_prod(){
     let serverAddress = entriesConfig[0].field("Server");
 
     let usersConfig = libByName("Konfiguracja PROD").entries();
-    let userName = ';
+    let userName = "";
     for(let idx in usersConfig){
     if(usersConfig[idx].field("czy To Ty"))
 		userName = usersConfig[idx].field("Nazwa Uzytkownika");
@@ -1186,7 +1187,7 @@ function synchronizeLibrary_suszenie_2019_prod(){
     let serverAddress = entriesConfig[0].field("Server");
 
     let usersConfig = libByName("Konfiguracja PROD").entries();
-    let userName = ';
+    let userName = "";
     for(let idx in usersConfig){
     if(usersConfig[idx].field("czy To Ty"))
 		userName = usersConfig[idx].field("Nazwa Uzytkownika");
@@ -1202,7 +1203,7 @@ function synchronizeLibrary_badania_gleb_prod(){
     let serverAddress = entriesConfig[0].field("Server");
 
     let usersConfig = libByName("Konfiguracja PROD").entries();
-    let userName = ';
+    let userName = "";
     for(let idx in usersConfig){
     if(usersConfig[idx].field("czy To Ty"))
 		userName = usersConfig[idx].field("Nazwa Uzytkownika");
@@ -1218,7 +1219,7 @@ function synchronizeLibrary_nasiona_2021_prod(){
     let serverAddress = entriesConfig[0].field("Server");
 
     let usersConfig = libByName("Konfiguracja PROD").entries();
-    let userName = ';
+    let userName = "";
     for(let idx in usersConfig){
     if(usersConfig[idx].field("czy To Ty"))
 		userName = usersConfig[idx].field("Nazwa Uzytkownika");
@@ -1234,7 +1235,7 @@ function synchronizeLibrary_siew_2021_prod(){
     let serverAddress = entriesConfig[0].field("Server");
 
     let usersConfig = libByName("Konfiguracja PROD").entries();
-    let userName = ';
+    let userName = "";
     for(let idx in usersConfig){
     if(usersConfig[idx].field("czy To Ty"))
 		userName = usersConfig[idx].field("Nazwa Uzytkownika");
@@ -1250,7 +1251,7 @@ function synchronizeLibrary_nawozy_2021_prod(){
     let serverAddress = entriesConfig[0].field("Server");
 
     let usersConfig = libByName("Konfiguracja PROD").entries();
-    let userName = ';
+    let userName = "";
     for(let idx in usersConfig){
     if(usersConfig[idx].field("czy To Ty"))
 		userName = usersConfig[idx].field("Nazwa Uzytkownika");
@@ -1266,7 +1267,7 @@ function synchronizeLibrary_papu_nawozenie_2021_prod(){
     let serverAddress = entriesConfig[0].field("Server");
 
     let usersConfig = libByName("Konfiguracja PROD").entries();
-    let userName = ';
+    let userName = "";
     for(let idx in usersConfig){
     if(usersConfig[idx].field("czy To Ty"))
 		userName = usersConfig[idx].field("Nazwa Uzytkownika");
@@ -1282,7 +1283,7 @@ function synchronizeLibrary_sor_mieszaniny_2021_prod(){
     let serverAddress = entriesConfig[0].field("Server");
 
     let usersConfig = libByName("Konfiguracja PROD").entries();
-    let userName = ';
+    let userName = "";
     for(let idx in usersConfig){
     if(usersConfig[idx].field("czy To Ty"))
 		userName = usersConfig[idx].field("Nazwa Uzytkownika");
@@ -1298,7 +1299,7 @@ function synchronizeLibrary_srodki_2021_prod(){
     let serverAddress = entriesConfig[0].field("Server");
 
     let usersConfig = libByName("Konfiguracja PROD").entries();
-    let userName = ';
+    let userName = "";
     for(let idx in usersConfig){
     if(usersConfig[idx].field("czy To Ty"))
 		userName = usersConfig[idx].field("Nazwa Uzytkownika");
@@ -1314,7 +1315,7 @@ function synchronizeLibrary_zabiegi_uprawowe_2021_prod(){
     let serverAddress = entriesConfig[0].field("Server");
 
     let usersConfig = libByName("Konfiguracja PROD").entries();
-    let userName = ';
+    let userName = "";
     for(let idx in usersConfig){
     if(usersConfig[idx].field("czy To Ty"))
 		userName = usersConfig[idx].field("Nazwa Uzytkownika");
@@ -1330,7 +1331,7 @@ function synchronizeLibrary_zbior_pozycje_2021_prod(){
     let serverAddress = entriesConfig[0].field("Server");
 
     let usersConfig = libByName("Konfiguracja PROD").entries();
-    let userName = ';
+    let userName = "";
     for(let idx in usersConfig){
     if(usersConfig[idx].field("czy To Ty"))
 		userName = usersConfig[idx].field("Nazwa Uzytkownika");
@@ -1346,7 +1347,7 @@ function synchronizeLibrary_zbior_2021_prod(){
     let serverAddress = entriesConfig[0].field("Server");
 
     let usersConfig = libByName("Konfiguracja PROD").entries();
-    let userName = ';
+    let userName = "";
     for(let idx in usersConfig){
     if(usersConfig[idx].field("czy To Ty"))
 		userName = usersConfig[idx].field("Nazwa Uzytkownika");
@@ -1362,7 +1363,7 @@ function synchronizeLibrary_synchronizacje_prod(){
     let serverAddress = entriesConfig[0].field("Server");
 
     let usersConfig = libByName("Konfiguracja PROD").entries();
-    let userName = ';
+    let userName = "";
     for(let idx in usersConfig){
     if(usersConfig[idx].field("czy To Ty"))
 		userName = usersConfig[idx].field("Nazwa Uzytkownika");
