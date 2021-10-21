@@ -119,11 +119,12 @@ function updateRow(columns, lib){
 }
 
 function updateField(field, foundedEntry){
-	if(field.name !== "mementoID")
+	if(field.name !== "mementoID"){
 		if(field.type==='ft_date' || field.type ==='ft_date_time')
 			field.value = new Date(field.value);
 		
 		foundedEntry.set(field.name, field.value);
+	}
 }
 
 function insertEntryInLibrary(dataRows, libName){
@@ -136,10 +137,11 @@ function insertEntryInLibrary(dataRows, libName){
 function insertRow(columns,lib){
 	let newMember = new Object();
 	for(let field of columns){
-		if(field.name !== "mementoID")
+		if(field.name !== "mementoID"){
 			if(field.type==='ft_date' || field.type ==='ft_date_time')
 				field.value = new Date(field.value);
 			newMember[field.name] = field.value;
+		}
 	}
 	let newEntry = lib.create(newMember);
 	newEntry.recalc();
