@@ -83,6 +83,10 @@ function synchronizeLibraryByName(libName){
 			//synchronizeLibrary_parametry_ziarna_prod();			
 			
 			synchronizeLibrary_zbior_pozycje_2020_prod();
+			break;	
+			
+		case "Inwentura PROD":
+			synchronizeLibrary_inwentura_prod();
 			break;
 		
 		default:
