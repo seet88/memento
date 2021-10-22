@@ -114,7 +114,7 @@ function updateLibrary(updateData, libName){
 }
 
 function updateRow(row, lib){
-	let foundedEntry = lib.findById(row.memento_id.value);
+	let foundedEntry = lib.findById(row.memento_id);
 	for(let field of row.fields){
 		updateField(field, foundedEntry);
 	}
@@ -156,6 +156,6 @@ function deleteEntriesFromLibrary(dataRows, libName){
 }
 
 function deleteRow(row,lib){
-	let foundedEntry = lib.findById(row.memento_id.value);
+	let foundedEntry = lib.findById(row.memento_id);
 	foundedEntry.trash();	
 }
