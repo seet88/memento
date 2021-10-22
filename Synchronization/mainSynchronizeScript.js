@@ -99,7 +99,10 @@ function handleResposneFromServer(response, libName){
 		updateLibrary(response.update, libName);
 	}
 	if(response.insert.length>0){
-		insertEntryInLibrary(response.insert, libName);
+		insertEntriesInLibrary(response.insert, libName);
+	}
+	if(response.delete.length>0){
+		deleteEntriesFromLibrary(response.delete, libName);
 	}
 }
 
@@ -110,39 +113,49 @@ function updateLibrary(updateData, libName){
 	}
 }
 
-function updateRow(columns, lib){
-	let foundedEntry = lib.findById(columns[columns.length-1].value);
-	for(let field of columns){
+function updateRow(row, lib){
+	let foundedEntry = lib.findById(row.memento_id.value);
+	for(let field of row.fields){
 		updateField(field, foundedEntry);
 	}
 	foundedEntry.recalc();
 }
 
 function updateField(field, foundedEntry){
-	if(field.name !== "mementoID"){
-		if(field.type==='ft_date' || field.type ==='ft_date_time')
-			field.value = new Date(field.value);
-		
-		foundedEntry.set(field.name, field.value);
-	}
+	if(field.type==='ft_date' || field.type ==='ft_date_time')
+		field.value = new Date(field.value);
+	
+	foundedEntry.set(field.name, field.value);
+	
 }
 
-function insertEntryInLibrary(dataRows, libName){
+function insertEntriesInLibrary(dataRows, libName){
 	let lib = libByName(libName);
 	for(let i=0; i<dataRows.length; i++){
 		insertRow(dataRows[i], lib);
 	}
 }
 
-function insertRow(columns,lib){
+function insertRow(row,lib){
 	let newMember = new Object();
-	for(let field of columns){
-		if(field.name !== "mementoID"){
-			if(field.type==='ft_date' || field.type ==='ft_date_time')
-				field.value = new Date(field.value);
-			newMember[field.name] = field.value;
-		}
+	for(let field of row.fields){
+		if(field.type==='ft_date' || field.type ==='ft_date_time')
+			field.value = new Date(field.value);
+		newMember[field.name] = field.value;
+		
 	}
 	let newEntry = lib.create(newMember);
 	newEntry.recalc();
+}
+
+function deleteEntriesFromLibrary(dataRows, libName){
+	let lib = libByName(libName);
+	for(let i=0; i<dataRows.length; i++){
+		deleteRow(dataRows[i], lib);
+	}
+}
+
+function deleteRow(row,lib){
+	let foundedEntry = lib.findById(row.memento_id.value);
+	foundedEntry.trash();	
 }
