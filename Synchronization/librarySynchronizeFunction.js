@@ -21,7 +21,7 @@ function synchronizeLibraryByName(libName){
 			synchronizeLibrary_uslugi_prod();
 			break;
 		case 'SoR Mieszaniny 2020 PROD':
-			//synchronizeLibrary_opis_produktow_prod();
+			synchronizeLibrary_opis_produktow_prod();
 			//synchronizeLibrary_lokacje_prod();	  
 
 			synchronizeLibrary_srodki_2020_prod();
@@ -32,13 +32,13 @@ function synchronizeLibraryByName(libName){
 			synchronizeLibrary_sor_mieszaniny_2020_prod();		
 		break;
 		case 'srodki 2020 PROD':
-			//synchronizeLibrary_opis_produktow_prod();
+			synchronizeLibrary_opis_produktow_prod();
 			//synchronizeLibrary_lokacje_prod();	
 
 			synchronizeLibrary_srodki_2020_prod();		
 			break;
 		case 'PaPu Nawozenie 2020 PROD':
-			//synchronizeLibrary_opis_produktow_prod();
+			synchronizeLibrary_opis_produktow_prod();
 			//synchronizeLibrary_lokacje_prod();	  
 
 			synchronizeLibrary_nawozy_2020_prod();
@@ -49,7 +49,7 @@ function synchronizeLibraryByName(libName){
 			synchronizeLibrary_papu_nawozenie_2020_prod();
 			break;
 		case 'nawozy 2020 PROD':
-			//synchronizeLibrary_opis_produktow_prod();
+			synchronizeLibrary_opis_produktow_prod();
 			//synchronizeLibrary_lokacje_prod();	
 
 			synchronizeLibrary_nawozy_2020_prod();		
@@ -87,6 +87,12 @@ function synchronizeLibraryByName(libName){
 			
 		case "Inwentura PROD":
 			synchronizeLibrary_inwentura_prod();
+			break;
+			
+		case "Opis produktow PROD":
+			synchronizeLibrary_pojazdy_prod();
+			
+			synchronizeLibrary_opis_produktow_prod();
 			break;
 		
 		default:
