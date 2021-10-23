@@ -146,7 +146,7 @@ function synchronizeLibraryWithServer(libName,serverAddress, userName,addAllCust
 	}
 	catch (e){
 		setErrorSynchronisationTable(libName);
-		message("Nastapil blad - przerywam skrypt - info w tabeli synchronizacji"):
+		message("Nastapil blad - przerywam skrypt - info w tabeli synchronizacji");
 		exit();
 	}
 }
