@@ -124,7 +124,7 @@ function setErrorSynchronisationTable(libName, errorMessage){
 	
 	setSynchronisationField(syncTableEntry,"blad synchronizacji");
 	syncTableEntry.set("status","blad");
-	syncTableEntry.set("blad","blad");		
+	syncTableEntry.set("blad",errorMessage);		
 }
 
 
