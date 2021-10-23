@@ -79,19 +79,76 @@ function addAllValueForLib(libName, userName, addAllCustomLibFields){
   return libObj;  
 }
 
-function synchronizeLibraryWithServer(libName,serverAddress, userName,addAllCustomLibFields){
-	message("rozpoczynam synchronizacje bazy:" + libName);
-	let mementoLibraryData = addAllValueForLib(libName, userName, addAllCustomLibFields);
+function setSynchronisationField(syncTableEntry, fieldName){
+	syncTableEntry.set(fieldName,new Date());
+}
 
-	message("zebralem dane - wysylam do servera");
-	let result = http().post(serverAddress, JSON.stringify(mementoLibraryData));
-	if(result.code < 200 || result.code > 220){
-		message("lib: "+libName+". Odebrany zostal blad z serwera:"+result.body);
-		return;
+function createSyncEntryAndSetStart(lib, libName){	
+	let newMember = new Object();
+	newMember["nazwa biblioteki"] = libName;
+	newMember["start synchronizacji"] = new Date();
+	lib.create(newMember);
+}
+
+function clearSynchronisationFields(syncTableEntry){
+	syncTableEntry.set("sukces synchronizacji",null);
+	syncTableEntry.set("blad synchronizacji",null);		
+	syncTableEntry.set("status",null);		
+	syncTableEntry.set("odpowiedz",null);		
+	syncTableEntry.set("blad",null);		
+	syncTableEntry.set("zapytanie",null);	
+}
+
+function clearOrCreateNewSyncEntryWithStartTime(libName){	
+	let lib = libByName("Synchronizacje bibliotek PROD");
+	let syncTableEntry = lib.findByKey(libName);
+	if(syncTableEntry){
+		clearSynchronisationFields(syncTableEntry);
+		setSynchronisationField(syncTableEntry,"start synchronizacji");
+	}else{
+		createSyncEntryAndSetStart(lib,libName);
+		syncTableEntry = lib.findByKey(libName);
 	}
-	message("otrzymalem dane z serwera o dlugosci: "+result.body.length);
-	handleResposneFromServer(JSON.parse(result.body), libName);
-	message("Zakonczona synchronizacja bazy:" + libName);
+	return syncTableEntry;
+}
+
+function setSuccessSynchronisationTable(syncTableEntry){
+	setSynchronisationField(syncTableEntry,"sukces synchronizacji");
+	syncTableEntry.set("status","sukces");	
+}
+
+function setErrorSynchronisationTable(libName){
+	
+	let lib = libByName("Synchronizacje bibliotek PROD");
+	let syncTableEntry = lib.findByKey(libName);
+	
+	setSynchronisationField(syncTableEntry,"blad synchronizacji");
+	syncTableEntry.set("status","blad");	
+}
+
+
+function synchronizeLibraryWithServer(libName,serverAddress, userName,addAllCustomLibFields){
+	try {
+		let syncTableEntry = clearOrCreateNewSyncEntryWithStartTime(libName);
+		message("rozpoczynam synchronizacje bazy:" + libName);
+		let mementoLibraryData = addAllValueForLib(libName, userName, addAllCustomLibFields);
+
+		message("zebralem dane - wysylam do servera");
+		let result = http().post(serverAddress, JSON.stringify(mementoLibraryData));
+		if(result.code < 200 || result.code > 220){
+			message("lib: "+libName+". Odebrany zostal blad z serwera:"+result.body);
+			return;
+		}
+		message("otrzymalem dane z serwera o dlugosci: "+result.body.length);
+		handleResposneFromServer(JSON.parse(result.body), libName);
+		setSuccessSynchronisationTable(syncTableEntry);
+		message("Zakonczona synchronizacja bazy:" + libName);
+	}
+	catch (e){
+		setErrorSynchronisationTable(libName);
+		message("Nastapil blad - przerywam skrypt - info w tabeli synchronizacji"):
+		exit();
+	}
 }
 
 function handleResposneFromServer(response, libName){
