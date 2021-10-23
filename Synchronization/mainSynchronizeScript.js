@@ -117,13 +117,14 @@ function setSuccessSynchronisationTable(syncTableEntry){
 	syncTableEntry.set("status","sukces");	
 }
 
-function setErrorSynchronisationTable(libName){
+function setErrorSynchronisationTable(libName, errorMessage){
 	
 	let lib = libByName("Synchronizacje bibliotek PROD");
 	let syncTableEntry = lib.findByKey(libName);
 	
 	setSynchronisationField(syncTableEntry,"blad synchronizacji");
-	syncTableEntry.set("status","blad");	
+	syncTableEntry.set("status","blad");
+	syncTableEntry.set("blad","blad");		
 }
 
 
@@ -145,7 +146,7 @@ function synchronizeLibraryWithServer(libName,serverAddress, userName,addAllCust
 		message("Zakonczona synchronizacja bazy:" + libName);
 	}
 	catch (e){
-		setErrorSynchronisationTable(libName);
+		setErrorSynchronisationTable(libName, e.message);
 		message("Nastapil blad - przerywam skrypt - info w tabeli synchronizacji");
 		exit();
 	}
