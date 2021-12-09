@@ -94,6 +94,91 @@ function synchronizeLibraryByName(libName){
 			
 			synchronizeLibrary_opis_produktow_prod();
 			break;
+			
+		case 'SoR Mieszaniny 2021 PROD':
+			synchronizeLibrary_opis_produktow_prod();
+			//synchronizeLibrary_lokacje_prod();	  
+
+			synchronizeLibrary_srodki_2021_prod();
+			synchronizeLibrary_pola();
+			//synchronizeLibrary_uprawy_prod();
+			//synchronizeLibrary_stawki_pracownicy_prod();	
+
+			synchronizeLibrary_sor_mieszaniny_2021_prod();		
+		break;
+		case 'srodki 2021 PROD':
+			synchronizeLibrary_opis_produktow_prod();
+			//synchronizeLibrary_lokacje_prod();	
+
+			synchronizeLibrary_srodki_2021_prod();		
+			break;
+		case 'PaPu Nawozenie 2021 PROD':
+			synchronizeLibrary_opis_produktow_prod();
+			//synchronizeLibrary_lokacje_prod();	  
+
+			synchronizeLibrary_nawozy_2021_prod();
+			synchronizeLibrary_pola();
+			//synchronizeLibrary_uprawy_prod();
+			//synchronizeLibrary_stawki_pracownicy_prod();
+
+			synchronizeLibrary_papu_nawozenie_2021_prod();
+			break;
+		case 'nawozy 2021 PROD':
+			synchronizeLibrary_opis_produktow_prod();
+			//synchronizeLibrary_lokacje_prod();	
+
+			synchronizeLibrary_nawozy_2021_prod();		
+			break;
+		
+		case 'Siew 2021 PROD':
+			synchronizeLibrary_siew_2021_prod()
+			//synchronizeLibrary_lokacje_prod();	  
+
+			synchronizeLibrary_nasiona_2021_prod();
+			synchronizeLibrary_pola();
+			//synchronizeLibrary_uprawy_prod();
+			//synchronizeLibrary_stawki_pracownicy_prod();
+
+			synchronizeLibrary_papu_nawozenie_2021_prod();
+			break;
+			
+		case 'Nasiona 2021 PROD':
+			synchronizeLibrary_opis_produktow_prod();
+			//synchronizeLibrary_lokacje_prod();	
+
+			synchronizeLibrary_nasiona_2021_prod();		
+			break;
+			
+		case "Zabiegi uprawowe 2021 PROD":
+			synchronizeLibrary_pojazdy_prod();
+			synchronizeLibrary_pola();
+			//synchronizeLibrary_uprawy_prod();
+			synchronizeLibrary_tankowanie_prod();
+			//synchronizeLibrary_stawki_pracownicy_prod();
+			
+			synchronizeLibrary_zabiegi_uprawowe_2021_prod();
+			break;		
+		case "Zbior 2021 PROD":
+			synchronizeLibrary_pola();
+			//synchronizeLibrary_uprawy_prod();
+			//synchronizeLibrary_stawki_pracownicy_prod();
+			synchronizeLibrary_nasiona_2021_prod();
+			//synchronizeLibrary_parametry_ziarna_prod();
+			
+			
+			synchronizeLibrary_zbior_2021_prod();
+			break;
+				
+		case "Zbior pozycje 2021 PROD":
+			synchronizeLibrary_zbior_2021_prod();
+			synchronizeLibrary_pola();
+			synchronizeLibrary_pojazdy_prod();
+			//synchronizeLibrary_uprawy_prod();
+			//synchronizeLibrary_stawki_pracownicy_prod();
+			//synchronizeLibrary_parametry_ziarna_prod();			
+			
+			synchronizeLibrary_zbior_pozycje_2021_prod();
+			break;					
 		
 		default:
 		message("brak funcji synchronizacji dla podanej biblioteki:"+libName);
