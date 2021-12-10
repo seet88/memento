@@ -131,7 +131,7 @@ function synchronizeLibraryByName(libName){
 			break;
 		
 		case 'Siew 2021 PROD':
-			synchronizeLibrary_siew_2021_prod()
+			synchronizeLibrary_opis_produktow_prod();
 			//synchronizeLibrary_lokacje_prod();	  
 
 			synchronizeLibrary_nasiona_2021_prod();
@@ -139,7 +139,7 @@ function synchronizeLibraryByName(libName){
 			//synchronizeLibrary_uprawy_prod();
 			//synchronizeLibrary_stawki_pracownicy_prod();
 
-			synchronizeLibrary_papu_nawozenie_2021_prod();
+			synchronizeLibrary_siew_2021_prod()
 			break;
 			
 		case 'Nasiona 2021 PROD':
@@ -170,9 +170,11 @@ function synchronizeLibraryByName(libName){
 			break;
 				
 		case "Zbior pozycje 2021 PROD":
-			synchronizeLibrary_zbior_2021_prod();
 			synchronizeLibrary_pola();
 			synchronizeLibrary_pojazdy_prod();
+			synchronizeLibrary_nasiona_2021_prod();
+			
+			synchronizeLibrary_zbior_2021_prod();
 			//synchronizeLibrary_uprawy_prod();
 			//synchronizeLibrary_stawki_pracownicy_prod();
 			//synchronizeLibrary_parametry_ziarna_prod();			
