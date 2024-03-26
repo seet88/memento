@@ -1,4 +1,4 @@
-var serverUrl = "http://192.168.55.24:3000/api/mobile-client-data";
+var serverUrl = "http://192.168.55.24:3010/api/mobile-client-data";
 // getLibraryFieldsFromAPI("Uprawy PROD", serverUrl);
 
 /**
@@ -120,6 +120,15 @@ fieldsTemplate: {
  * @property {Object.<string, EntryCustomField>}
  */
 
+/**
+ *
+ * @typedef {Object} ServerNewEntryMach
+ * @param {string} prevId
+ * @param {string} newId
+ * @param {string} systemInfo
+ * @returns
+ */
+
 function getLibraryFieldsFromAPI(libName, serverAddress) {
   var url = serverAddress + "/get-fields-to-sync?lib-name=" + libName;
   //   message(url);
@@ -208,7 +217,8 @@ function synchronizeLibData(libName, serverUrl) {
   var url = serverUrl + "/sync-lib-data";
   var result = http().post(url, JSON.stringify(libData));
   message("after post");
-  message(result);
+  handleResponseFromServer(JSON.parse(result.body), libName);
+  message("after handle");
   return result;
 }
 
@@ -217,14 +227,14 @@ function synchronizeLibData(libName, serverUrl) {
  * @param {string} libName
  */
 function handleResponseFromServer(response, libName) {
-  if (response.update.length > 0) {
+  if (response.delete && response.delete.length > 0) {
+    deleteEntriesFromLibrary(response.delete, libName);
+  }
+  if (response.update && response.update.length > 0) {
     updateLibrary(response.update, libName);
   }
-  if (response.insert.length > 0) {
+  if (response.insert && response.insert.length > 0) {
     insertEntriesInLibrary(response.insert, libName);
-  }
-  if (response.delete.length > 0) {
-    deleteEntriesFromLibrary(response.delete, libName);
   }
 }
 
@@ -261,7 +271,8 @@ function updateField(field, foundedEntry) {
   //unlinking ?
   if (field.type === "ft_date" || field.type === "ft_date_time")
     field.value = new Date(field.value);
-
+  // message(field.value);
+  // message(field.name);
   foundedEntry.set(field.name, field.value);
 }
 
@@ -289,7 +300,13 @@ function insertRow(row, lib) {
       field.value = new Date(field.value);
     newMember[field.name] = field.value;
   }
+  // message(JSON.stringify(newMember));
   let newEntry = lib.create(newMember);
+  sendNewEntryMachToServer({
+    prevId: row.memento_id,
+    newId: newEntry.id,
+    systemInfo: system().os,
+  });
   newEntry.recalc();
 }
 
@@ -312,6 +329,15 @@ function deleteEntriesFromLibrary(dataRows, libName) {
 function deleteRow(row, lib) {
   let foundedEntry = lib.findById(row.memento_id);
   foundedEntry.trash();
+}
+
+/**
+ * @param {ServerNewEntryMach} entryMachInfo
+ */
+function sendNewEntryMachToServer(entryMachInfo) {
+  var url = serverUrl + "/new-entry-id";
+  var result = http().post(url, JSON.stringify(entryMachInfo));
+  return result;
 }
 
 synchronizeLibData("Uprawy PROD", serverUrl);
