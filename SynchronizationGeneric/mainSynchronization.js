@@ -5,13 +5,36 @@ var serverUrl = "http://192.168.55.24:3000/api/mobile-client-data";
  * @typedef {Object} Entry
  * @property {function(string): string} field
  * @property {function(string, string): void} set
+ * @property {function(string, Entry): void} link
+ * @property {function(string, Entry): void} unlink
+ * @property {function(): void} recalc
+ * @property {function(): void} trash
+ * @property {function(): void} untrash
+ * @property {function(): void} show
  * @property {string} id
  * @property {string} author
+ * @property {string} deleted
+ * @property {string} description
+ * @property {string} favorites
  * @property {string} creationTime
  * @property {string} lastModifiedTime
  * @property {string} name
+ * @property {string} title
  *
  */
+
+/**
+ * @typedef {Object} Library
+ * @property {function(): Array<Entry>} entries
+ * @property {function(Object.<string, string>): Entry} create
+ * @property {function(string): Array<Entry>} find
+ * @property {function(string): Entry} findById
+ * @property {function(string): Entry} findByKey
+ * @property {function(Entry): Array<Entry>} linksTo
+ * @property {function(): null} show()
+ * @property {string} name
+ * @property {string} title
+ * 
 
 /**
  * @typedef {Object} EntrySystemFields
@@ -77,6 +100,26 @@ fieldsTemplate: {
  * @param {string} libName
  * @returns {LibraryFieldsTemplate}
  */
+
+/**
+ * @typedef {Object} ServerUpdateData
+ * @property {Array<ServerUpdateRow>} update
+ * @property {Array<ServerUpdateRow>} insert
+ * @property {Array<ServerUpdateRow>} delete
+ */
+
+/**
+ * @typedef {Object} ServerUpdateRow
+ * @property {string} memento_id
+ * @property {Array<ServerUpdateField>} fields
+ * @property {string} uniqueName
+ */
+
+/**
+ * @typedef {Object} ServerUpdateField
+ * @property {Object.<string, EntryCustomField>}
+ */
+
 function getLibraryFieldsFromAPI(libName, serverAddress) {
   var url = serverAddress + "/get-fields-to-sync?lib-name=" + libName;
   //   message(url);
@@ -167,6 +210,108 @@ function synchronizeLibData(libName, serverUrl) {
   message("after post");
   message(result);
   return result;
+}
+
+/**
+ * @param {ServerUpdateData} response
+ * @param {string} libName
+ */
+function handleResponseFromServer(response, libName) {
+  if (response.update.length > 0) {
+    updateLibrary(response.update, libName);
+  }
+  if (response.insert.length > 0) {
+    insertEntriesInLibrary(response.insert, libName);
+  }
+  if (response.delete.length > 0) {
+    deleteEntriesFromLibrary(response.delete, libName);
+  }
+}
+
+/**
+ * @param {Array<ServerUpdateRow>} dataRows
+ * @param {string} libName
+ */
+function updateLibrary(dataRows, libName) {
+  let lib = libByName(libName);
+  for (let i = 0; i < dataRows.length; i++) {
+    updateRow(dataRows[i], lib);
+  }
+}
+
+/**
+ *
+ * @param {ServerUpdateRow} row
+ * @param {Library} lib
+ */
+function updateRow(row, lib) {
+  let foundedEntry = lib.findById(row.memento_id);
+  for (let field of row.fields) {
+    updateField(field, foundedEntry);
+  }
+  foundedEntry.recalc();
+}
+
+/**
+ * @param {ServerUpdateField} field
+ * @param {Entry} foundedEntry
+ */
+function updateField(field, foundedEntry) {
+  //support linking
+  //unlinking ?
+  if (field.type === "ft_date" || field.type === "ft_date_time")
+    field.value = new Date(field.value);
+
+  foundedEntry.set(field.name, field.value);
+}
+
+/**
+ *
+ * @param {Array<ServerUpdateRow>} dataRows
+ * @param {string} libName
+ */
+function insertEntriesInLibrary(dataRows, libName) {
+  let lib = libByName(libName);
+  for (let i = 0; i < dataRows.length; i++) {
+    insertRow(dataRows[i], lib);
+  }
+}
+
+/**
+ *
+ * @param {ServerUpdateRow} row
+ * @param {Library} lib
+ */
+function insertRow(row, lib) {
+  let newMember = new Object();
+  for (let field of row.fields) {
+    if (field.type === "ft_date" || field.type === "ft_date_time")
+      field.value = new Date(field.value);
+    newMember[field.name] = field.value;
+  }
+  let newEntry = lib.create(newMember);
+  newEntry.recalc();
+}
+
+/**
+ *
+ * @param {Array<ServerUpdateRow>} dataRows
+ * @param {string} libName
+ */
+function deleteEntriesFromLibrary(dataRows, libName) {
+  let lib = libByName(libName);
+  for (let i = 0; i < dataRows.length; i++) {
+    deleteRow(dataRows[i], lib);
+  }
+}
+
+/**
+ * @param {ServerUpdateRow} row
+ * @param {Library} lib
+ */
+function deleteRow(row, lib) {
+  let foundedEntry = lib.findById(row.memento_id);
+  foundedEntry.trash();
 }
 
 synchronizeLibData("Uprawy PROD", serverUrl);
