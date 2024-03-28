@@ -166,6 +166,9 @@ function getEntrySystemValues(entry) {
   obj["creationTime"] = moment(String(entry.creationTime));
   obj["lastModifiedTime"] = moment(String(entry.lastModifiedTime));
   obj["name"] = entry.name;
+  obj["deleted"] = entry.deleted;
+  obj["description"] = entry.description;
+  obj["favorites"] = entry.favorites;
   return obj;
 }
 
